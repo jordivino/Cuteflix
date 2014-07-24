@@ -19,10 +19,13 @@ Cuteflix.Views.TagShowView = Backbone.CompositeView.extend({
   }, 
   
   render: function() {
+    var view = this; 
     var renderedContent = this.template({
       tag: this.model
     }); 
+    
     this.$el.html(renderedContent); 
+
     this.attachSubviews();
     return this;  
   }, 
@@ -35,19 +38,29 @@ Cuteflix.Views.TagShowView = Backbone.CompositeView.extend({
   }, 
   
   slideLeft: function(event) {
+    var view = this; 
     
-  }, 
+    this.intervalID = setInterval(function() {
+      var left = parseInt(this.$(".track").css("left"))
+      view.$(".track").css("left", left + 2)
+    }, 10);
+  },
   
   slideRight: function(event) {
+    var view = this; 
     
+    this.intervalID = setInterval(function() {
+      var left = parseInt(this.$(".track").css("left"))
+      view.$(".track").css("left", left - 2)
+    }, 10);
   },
   
   stopLeft: function(event) {
-    
+    clearInterval(this.intervalID)
   }, 
   
   stopRight: function(event) {
-    
+    clearInterval(this.intervalID)
   },
   
 });

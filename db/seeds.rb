@@ -51,8 +51,8 @@ v9 = Video.create(
   :ytid => "vpqA0OwtvK0"
 )
 
-dogsTag = Tag.create(:name => "Dogs")
 catsTag = Tag.create(:name => "Cats")
+dogsTag = Tag.create(:name => "Dogs")
 bunniesTag = Tag.create(:name => "Bunnies")
 wildlifeTag = Tag.create(:name => "Wildlife")
 humansTag = Tag.create(:name => "Humans")

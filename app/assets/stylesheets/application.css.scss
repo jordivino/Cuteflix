@@ -38,7 +38,7 @@ form .password {
 }
 
 .image:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 
@@ -49,77 +49,63 @@ body * {
 
 
 .videos-slider {
-    position: relative;
-    
-    background-color: #ccc;
-    margin: 10px;
+  position: relative;
+  height: 210px;
+  background-color: #ccc;
+  margin: 10px;
   
     
-    overflow: hidden;
+  overflow: hidden;
 }
+
 .track {
-
-    left: 10px;
-    
-    
-    margin: 0;
-    border: 0;
-
-    width: 2000px;
+  position: absolute;
+  left: 10px;
+  margin: 0;
+  border: 0;
 }
 
-/*
+
 .thumbs {
+  
+  display: inline-block;
+  vertical-align: top;
+  
+  padding-top: 5px;
+  
+  margin: 5px;
+  margin-top: 10px;
+  padding: 0;
+
   width: 200px;
   height: 200px;
-
-  vertical-align: top;
-  margin: 5px;
-
-}
-
-*/
-.thumbs {
-  
-    display: inline-block;
-    vertical-align: top;
-    
-    padding-top: 5px;
-    
-    margin: 5px;
-    margin-top: 10px;
-    padding: 0;
-
-    
-    width: 200px;
-    height: 200px;
-    text-align: center;
+  text-align: center;
 
     
     
-    -webkit-transition: opacity 0.2s;
-    -moz-transition: opacity 0.2s;
-    -ms-transition: opacity 0.2s;
-    -o-transition: opacity 0.2s;
-    -webkit-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
 }
 
 
 
 .left, .right {
-    position: absolute;
-    color: white;
-    font-size: 48px;
-    top: 57px;
-    
-    cursor: pointer;
-    z-index: 1;
+  position: absolute;
+  color: white;
+  font-size: 48px;
+  top: 57px;
+
+  cursor: pointer;
+  z-index: 1;
 }
 .left {
-    left: 0;
+  left: 0;
 }
 .right {
-    right: 0;
+  right: 0;
 }
 
 
