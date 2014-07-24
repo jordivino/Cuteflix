@@ -1,6 +1,7 @@
-<div class="image"></div>
+<a
+  href="<%= "/#/videos/" + video.get("id") %>">
+  <div class="image"></div>
+</a>
 
-<div class="video-title">
-  <a href="<%= video.get("url") %>"><%= video.get("title") %></a>
-  
-</div>
+
+<div class="video-title"><%= video.get("title") %></div>

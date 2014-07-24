@@ -10,17 +10,19 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
   }, 
   
   userShow: function() {
-    // debugger
     var userShowView = new Cuteflix.Views.UserShowView({
       // Need to implement logged in user 
       tags: Cuteflix.tags
     });
-    Cuteflix.tags.fetch();
     this._swapView(userShowView);
   }, 
   
   videoShow: function(id) {
-    
+    var video = Cuteflix.videos.getOrFetch(id);
+    var videoShowView = new Cuteflix.Views.VideoShowView({
+      model: video
+    }); 
+    this._swapView(videoShowView);
   },
   
   _swapView: function(view){

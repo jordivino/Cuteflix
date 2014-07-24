@@ -8,27 +8,47 @@
 
 v1 = Video.create(
   :title => "Cat In A Shark Costume Chases A Duck While Riding A Roomba",
-  :url => "https://www.youtube.com/watch?v=Of2HU3LGdbo"
+  :url => "//www.youtube.com/embed/Of2HU3LGdbo"
 )
 
 v2 = Video.create(
-  :title => "Corgi Flop", 
-  :url => "https://www.youtube.com/watch?v=glii-kazad8"
+  :title => "Corgi Flop 2012", 
+  :url => "//www.youtube.com/embed/If875wg22ps"
 )
 
 v3 = Video.create(
   :title => "Chow Puppy Can't Get Out Of Bowl",
-  :url => "https://www.youtube.com/watch?v=lgLGk8Ssgsg"
+  :url => "//www.youtube.com/embed/lgLGk8Ssgsg"
 )
 
 v4 = Video.create(
   :title => "Cat Hugs Baby Kitten Having Nightmare",
-  :url => "https://www.youtube.com/watch?v=GzgpeLFf4z4"
+  :url => "//www.youtube.com/embed/GzgpeLFf4z4"
 )
 
 v5 = Video.create(
   :title => "Impossibly Cute Husky Puppy: Wolfie's First Week",
-  :url => "https://www.youtube.com/watch?v=32yJSz9j4XY"
+  :url => "//www.youtube.com/embed/32yJSz9j4XY"
+)
+
+v6 = Video.create(
+  :title => "cute bunny",
+  :url => "//www.youtube.com/embed/EY-uM56BSrY"
+)
+
+v7 = Video.create(
+  :title => "Cute Funny Baby Bunny Rabbit!",
+  :url => "//www.youtube.com/embed/tVnafKAUGLQ"
+)
+
+v8 = Video.create(
+  :title => "World Cutest Little Bunny Rabbit! - Lucky Latte #003",
+  :url => "//www.youtube.com/embed/q3SnbP3j6Zg"
+)
+
+v9 = Video.create(
+  :title => "Cute Kitten Playing And Sleeping | Too Cute!", 
+  :url => "//www.youtube.com/embed/vpqA0OwtvK0"
 )
 
 dogsTag = Tag.create(:name => "Dogs")
@@ -39,9 +59,14 @@ humansTag = Tag.create(:name => "Humans")
 
 
 
-v1.tags.push(catsTag)
+
 v2.tags.push(dogsTag)
 v3.tags.push(dogsTag)
-v4.tags.push(catsTag)
 v5.tags.push(dogsTag)
+v4.tags.push(catsTag)
+v1.tags.push(catsTag)
+v9.tags.push(catsTag)
+v6.tags.push(bunniesTag)
+v7.tags.push(bunniesTag)
+v8.tags.push(bunniesTag)
 

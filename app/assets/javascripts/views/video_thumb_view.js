@@ -18,12 +18,6 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     return this;
   }, 
   
-  events: {
-    "click .image": "imageClicked"
-  }, 
-  
-  imageClicked: function(event) {
-    alert("redirecting")
-  }
+
   
 });
