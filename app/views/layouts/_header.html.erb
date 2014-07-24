@@ -15,7 +15,7 @@
         <%= button_to "Sign Out", session_url, :method => :delete, :class => "btn btn-primary navbar-btn" %>
       <% else %>
         <ul class="nav navbar-nav">
-          <li><%= link_to "Log in", new_session_url %></li>
+          <li><%= link_to "Sign in", new_session_url %></li>
           <li><%= link_to "Sign up", new_user_url %></li>
         </ul>
       <% end %>

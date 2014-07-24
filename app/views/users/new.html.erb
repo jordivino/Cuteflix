@@ -1,34 +1,35 @@
-<h1>Sign Up!</h1>
+<div class="auth">
+  
+  <h2>Sign Up</h2>
 
-<ul>
-<% @user.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-</ul>
 
-<form action="<%=users_url%>" method="POST">
-  <input 
-    type="hidden" 
-    name="authenticity_token" 
-    id="" 
-    value="<%=form_authenticity_token%>" />
+  <form id="sign-up" action="<%=users_url%>" method="POST">
+    <input 
+      type="hidden" 
+      name="authenticity_token" 
+      class="email"
+      value="<%=form_authenticity_token%>" />
     
-  <label for="email">Email</label>
-  <input 
-    type="text" 
-    name="user[email]" 
-    id="email" 
-    value='<%= @user.email %>' /><br>
+    <input 
+      type="text" 
+      name="user[email]" 
+      class="email" 
+      placeholder="Email"
+      value='<%= @user.email %>' /><br>
     
-  <label for="user_password">Password</label>
-  <input 
-    type="password" 
-    name="user[password]" 
-    id="user_password" 
-    value="" /><br>
     
-  <input 
-    type="submit" 
-    id="" 
-    value="Sign up" />
-</form>
+    <input 
+      type="password" 
+      name="user[password]" 
+      class="password" 
+      placeholder="Password"
+      value="" /><br>
+    
+    <input 
+      type="submit" 
+      id="" 
+      value="Sign up" class="btn btn-primary"/>
+  </form>
+  
+</div>
+
