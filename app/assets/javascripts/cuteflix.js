@@ -5,10 +5,15 @@ window.Cuteflix = {
   Routers: {},
   initialize: function() {
     Cuteflix.library = new Cuteflix.Collections.Videos();
-    Cuteflix.tags = new Cuteflix,Collections.Tags();
-    var $rootEl = $("#content");
-    new Cuteflix.Routers.AppRouter($rootEl);
-    Backbone.history.start();
+    Cuteflix.tags = new Cuteflix.Collections.Tags();
+    Cuteflix.tags.fetch({
+      success: function() {
+        var $rootEl = $("#content");
+        new Cuteflix.Routers.AppRouter($rootEl);
+        Backbone.history.start();
+      }
+    })
+
   }
 };
 

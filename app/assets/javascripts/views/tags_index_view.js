@@ -6,7 +6,6 @@ Cuteflix.Views.TagsIndexView = Backbone.CompositeView.extend({
     var view = this; 
     this.collection = options.collection
     
-    
     this.collection.each(function(tag){
       view.addTag(tag);
     })

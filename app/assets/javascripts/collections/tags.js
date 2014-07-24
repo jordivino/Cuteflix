@@ -1,6 +1,7 @@
 Cuteflix.Collections.Tags = Backbone.Collection.extend({
   
-  url: "/api/tags"
+  url: "/api/tags",
+  
   model: Cuteflix.Models.Tag,
   
   getOrFetch: function(id) {

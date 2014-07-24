@@ -1,5 +1,5 @@
 Cuteflix.Models.Video = Backbone.Model.extend({
-  urlRoot: "/api/videos"
+  urlRoot: "/api/videos",
   
   parse: function(response) {
     if (response.tags) {

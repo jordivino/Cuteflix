@@ -1,4 +1,4 @@
-Cuteflix.Models.Tag = Backbone.Model.Extend({
+Cuteflix.Models.Tag = Backbone.Model.extend({
   urlRoot: "/api/tags",
   
   parse: function(response) {

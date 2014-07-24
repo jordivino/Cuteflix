@@ -1,7 +1,8 @@
 Cuteflix.Collections.Videos = Backbone.Collection.extend({
   
   url: "/api/videos",
-  model: Cuteflix.Models.Video
+  
+  model: Cuteflix.Models.Video,
   
   getOrFetch: function(id) {
     var videos = this; 
