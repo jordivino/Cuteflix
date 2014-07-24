@@ -3,14 +3,14 @@ Cuteflix.Views.UserShowView = Backbone.CompositeView.extend({
   template: JST["user_show"],
   
   initialize: function(options) {
+    var view = this;
     this.model = options.user;
-    this.tags = options.tags;
+    this.tags = options.tags
+
     
-    var tagsIndexView = new Cuteflix.Views.TagsIndexView({
-      collection: this.tags
-    });
-    
-    this.addSubview("#library", tagsIndexView); 
+    this.tags.each(function(tag){
+      view.addTag(tag);
+    })
   }, 
   
   render: function() {
@@ -19,7 +19,14 @@ Cuteflix.Views.UserShowView = Backbone.CompositeView.extend({
     this.attachSubviews();
     
     return this; 
-  }
+  }, 
+  
+  addTag: function(tagModel) {
+    var tagShowView = new Cuteflix.Views.TagShowView({
+      model: tagModel
+    });
+    this.addSubview("#library", tagShowView);
+  },
   
   
 });

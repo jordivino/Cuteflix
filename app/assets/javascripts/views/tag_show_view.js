@@ -5,10 +5,17 @@ Cuteflix.Views.TagShowView = Backbone.CompositeView.extend({
   initialize: function(options) {
     var view = this; 
     this.model = options.model; 
-    var videoIndexView = new Cuteflix.Views.VideosIndexView({
-      collection: this.model.videos()
+    
+    this.model.videos().each(function(video) {
+      view.addVideo(video)
     });
-    this.addSubview(".videos", videoIndexView)
+  }, 
+  
+  addVideo: function(videoModel) { 
+    var videoThumbView = new Cuteflix.Views.VideoThumbView({
+      model: videoModel
+    });
+    this.addSubview(".videos", videoThumbView);
   }, 
   
   render: function() {

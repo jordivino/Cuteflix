@@ -2,6 +2,8 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
   
   template: JST["video_thumb"], 
   
+  className: "thumbs",
+  
   intitialize: function(options) {
     this.model = options.model 
   }, 

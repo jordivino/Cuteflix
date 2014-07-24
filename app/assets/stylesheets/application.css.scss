@@ -27,3 +27,15 @@ form .email {
 form .password {
   margin-bottom: 5px;
 }
+
+.thumbs {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  display: inline-block;
+  vertical-align: top;
+}
+
+body * {
+  border: thin dotted blue;
+}
