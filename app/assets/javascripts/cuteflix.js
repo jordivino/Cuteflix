@@ -4,7 +4,7 @@ window.Cuteflix = {
   Views: {},
   Routers: {},
   initialize: function() {
-    Cuteflix.videos = new Cuteflix.Collections.Videos();
+    Cuteflix.library = new Cuteflix.Collections.Videos();
     var $rootEl = $("#content");
     new Cuteflix.Routers.AppRouter($rootEl);
     Backbone.history.start();
