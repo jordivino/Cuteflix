@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723222538) do
+ActiveRecord::Schema.define(version: 20140724201726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20140723222538) do
 
   create_table "videos", force: true do |t|
     t.string "title", null: false
-    t.string "url",   null: false
+    t.string "ytid",  null: false
   end
 
-  add_index "videos", ["url"], name: "index_videos_on_url", unique: true, using: :btree
+  add_index "videos", ["ytid"], name: "index_videos_on_ytid", unique: true, using: :btree
 
 end

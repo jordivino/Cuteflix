@@ -15,7 +15,7 @@ Cuteflix.Views.TagShowView = Backbone.CompositeView.extend({
     var videoThumbView = new Cuteflix.Views.VideoThumbView({
       model: videoModel
     });
-    this.addSubview(".videos", videoThumbView);
+    this.addSubview(".track", videoThumbView);
   }, 
   
   render: function() {
@@ -25,6 +25,29 @@ Cuteflix.Views.TagShowView = Backbone.CompositeView.extend({
     this.$el.html(renderedContent); 
     this.attachSubviews();
     return this;  
-  }
+  }, 
+  
+  events: {
+    "mouseenter .left": "slideLeft",
+    "mouseenter .right": "slideRight",
+    "mouseleave .left": "stopLeft",
+    "mouseleave .right": "stopRight"
+  }, 
+  
+  slideLeft: function(event) {
+    
+  }, 
+  
+  slideRight: function(event) {
+    
+  },
+  
+  stopLeft: function(event) {
+    
+  }, 
+  
+  stopRight: function(event) {
+    
+  },
   
 });

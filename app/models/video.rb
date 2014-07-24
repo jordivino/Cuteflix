@@ -8,8 +8,8 @@
 #
 
 class Video < ActiveRecord::Base
-  validates :title, :url, :presence => true
-  validates :url, :uniqueness => true
+  validates :title, :ytid, :presence => true
+  validates :ytid, :uniqueness => true
   
   has_many :video_taggings
   

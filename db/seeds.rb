@@ -8,47 +8,47 @@
 
 v1 = Video.create(
   :title => "Cat In A Shark Costume Chases A Duck While Riding A Roomba",
-  :url => "//www.youtube.com/embed/Of2HU3LGdbo"
+  :ytid => "Of2HU3LGdbo"
 )
 
 v2 = Video.create(
   :title => "Corgi Flop 2012", 
-  :url => "//www.youtube.com/embed/If875wg22ps"
+  :ytid => "If875wg22ps"
 )
 
 v3 = Video.create(
   :title => "Chow Puppy Can't Get Out Of Bowl",
-  :url => "//www.youtube.com/embed/lgLGk8Ssgsg"
+  :ytid => "lgLGk8Ssgsg"
 )
 
 v4 = Video.create(
   :title => "Cat Hugs Baby Kitten Having Nightmare",
-  :url => "//www.youtube.com/embed/GzgpeLFf4z4"
+  :ytid => "GzgpeLFf4z4"
 )
 
 v5 = Video.create(
   :title => "Impossibly Cute Husky Puppy: Wolfie's First Week",
-  :url => "//www.youtube.com/embed/32yJSz9j4XY"
+  :ytid => "32yJSz9j4XY"
 )
 
 v6 = Video.create(
   :title => "cute bunny",
-  :url => "//www.youtube.com/embed/EY-uM56BSrY"
+  :ytid => "EY-uM56BSrY"
 )
 
 v7 = Video.create(
   :title => "Cute Funny Baby Bunny Rabbit!",
-  :url => "//www.youtube.com/embed/tVnafKAUGLQ"
+  :ytid => "tVnafKAUGLQ"
 )
 
 v8 = Video.create(
   :title => "World Cutest Little Bunny Rabbit! - Lucky Latte #003",
-  :url => "//www.youtube.com/embed/q3SnbP3j6Zg"
+  :ytid => "q3SnbP3j6Zg"
 )
 
 v9 = Video.create(
   :title => "Cute Kitten Playing And Sleeping | Too Cute!", 
-  :url => "//www.youtube.com/embed/vpqA0OwtvK0"
+  :ytid => "vpqA0OwtvK0"
 )
 
 dogsTag = Tag.create(:name => "Dogs")
