@@ -1,9 +1,13 @@
 class Api::TagsController < ApplicationController
 
   def index
-    video = Video.find(params[:video_id])
-    @tags = video.tags
-    render :json => @tags
+    @tags = Tag.includes(:videos)
+    render :index
+  end 
+  
+  def show
+    @tag = Tag.includes(:videos).find(params[:id])
+    render :show
   end 
 
 end 

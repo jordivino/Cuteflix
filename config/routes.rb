@@ -5,8 +5,7 @@ Cuteflix::Application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
   
   namespace :api, :defaults => {:format => :json} do 
-    resources :videos, :only  => [:show, :index] do 
-      resources :tags, :only => [:index]
-    end 
+    resources :videos, :only  => [:show, :index] 
+    resources :tags, :only => [:show, :index] 
   end 
 end

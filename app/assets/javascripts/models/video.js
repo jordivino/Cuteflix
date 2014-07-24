@@ -11,9 +11,7 @@ Cuteflix.Models.Video = Backbone.Model.extend({
   
   tags: function() {
     if (!this._tags) {
-      this._tags = new Cuteflix.Collections.Tags([], {
-        video: this
-      });
+      this._tags = new Cuteflix.Collections.Tags();
     }
     return this._tags
   }

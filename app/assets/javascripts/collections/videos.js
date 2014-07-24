@@ -1,4 +1,5 @@
 Cuteflix.Collections.Videos = Backbone.Collection.extend({
+  
   url: "/api/videos",
   model: Cuteflix.Models.Video
   
