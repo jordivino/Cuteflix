@@ -1,11 +1,15 @@
 Cuteflix::Application.routes.draw do
   root :to => "static_pages#root"
 
-  resources :users, :only => [:new, :create, :show]
+  resources :users, :only => [:new, :create]
   resource :session, :only => [:new, :create, :destroy]
   
   namespace :api, :defaults => {:format => :json} do 
-    resources :videos, :only  => [:show, :index] 
+    resources :videos, :only  => [:show, :index] do 
+      collection do 
+        get :my_list
+      end 
+    end 
     resources :tags, :only => [:show, :index] 
   end 
 end

@@ -18,6 +18,15 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   
+  has_many :my_listings
+  
+  has_many(
+    :my_list_videos, 
+    :through => :my_listings, 
+    :source => :video
+  ) 
+
+  
   attr_reader :password
   
   def ensure_session_token

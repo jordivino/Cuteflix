@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+user = User.create(
+  :email => "philpee2@gmail.com", 
+  :password => "password"
+)
+
 v1 = Video.create(
   :title => "Cat In A Shark Costume Chases A Duck While Riding A Roomba",
   :ytid => "Of2HU3LGdbo"
@@ -69,4 +74,7 @@ v9.tags.push(catsTag)
 v6.tags.push(bunniesTag)
 v7.tags.push(bunniesTag)
 v8.tags.push(bunniesTag)
+
+user.my_list_videos.push(v1)
+user.my_list_videos.push(v5)
 

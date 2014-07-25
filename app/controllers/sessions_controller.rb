@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   
   def check_logged_in
     if logged_in?
-      redirect_to user_url(current_user)
+      redirect_to root_url
     end 
   end 
   

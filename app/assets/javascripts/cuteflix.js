@@ -5,7 +5,7 @@ window.Cuteflix = {
   Routers: {},
   initialize: function() {
     Cuteflix.videos = new Cuteflix.Collections.Videos();
-    Cuteflix.videos.fetch();
+    Cuteflix.myListVideos = new Cuteflix.Collections.Videos();
     Cuteflix.tags = new Cuteflix.Collections.Tags();
     Cuteflix.tags.fetch({
       success: function() {

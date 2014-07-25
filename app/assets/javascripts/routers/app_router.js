@@ -5,16 +5,15 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
   }, 
   
   routes: {
-    "": "userShow", 
+    "": "videosIndex", 
     "videos/:id": "videoShow"
   }, 
   
-  userShow: function() {
-    var userShowView = new Cuteflix.Views.UserShowView({
-      // Need to implement logged in user 
+  videosIndex: function() {
+    var videosIndexView = new Cuteflix.Views.VideosIndexView({
       tags: Cuteflix.tags
     });
-    this._swapView(userShowView);
+    this._swapView(videosIndexView);
   }, 
   
   videoShow: function(id) {

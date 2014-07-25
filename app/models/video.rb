@@ -4,7 +4,7 @@
 #
 #  id    :integer          not null, primary key
 #  title :string(255)      not null
-#  url   :string(255)      not null
+#  ytid  :string(255)      not null
 #
 
 class Video < ActiveRecord::Base
