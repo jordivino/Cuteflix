@@ -10,8 +10,15 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
   }, 
   
   videosIndex: function() {
+    Cuteflix.tags.fetch();
+    Cuteflix.myListVideos.fetch({
+      data: {
+        my_list: true
+      }
+    })
     var videosIndexView = new Cuteflix.Views.VideosIndexView({
-      tags: Cuteflix.tags
+      tags: Cuteflix.tags,
+      myListVideos: Cuteflix.myListVideos
     });
     this._swapView(videosIndexView);
   }, 
@@ -31,3 +38,4 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
   }
   
 });
+

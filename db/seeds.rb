@@ -56,6 +56,16 @@ v9 = Video.create(
   :ytid => "vpqA0OwtvK0"
 )
 
+v10 = Video.create(
+  :title => "Dogs vs. Citrus", 
+  :ytid => "RCRNJfvfEfg"
+)
+
+v11 = Video.create(
+  :title => "Chow Puppy Can't Jump", 
+  :ytid => "CORZYXxVrzY"
+)
+
 catsTag = Tag.create(:name => "Cats")
 dogsTag = Tag.create(:name => "Dogs")
 bunniesTag = Tag.create(:name => "Bunnies")
@@ -63,11 +73,11 @@ wildlifeTag = Tag.create(:name => "Wildlife")
 humansTag = Tag.create(:name => "Humans")
 
 
-
-
 v2.tags.push(dogsTag)
 v3.tags.push(dogsTag)
 v5.tags.push(dogsTag)
+v10.tags.push(dogsTag)
+v11.tags.push(dogsTag)
 v4.tags.push(catsTag)
 v1.tags.push(catsTag)
 v9.tags.push(catsTag)
@@ -75,6 +85,8 @@ v6.tags.push(bunniesTag)
 v7.tags.push(bunniesTag)
 v8.tags.push(bunniesTag)
 
+
 user.my_list_videos.push(v1)
 user.my_list_videos.push(v5)
+user.my_list_videos.push(v6)
 

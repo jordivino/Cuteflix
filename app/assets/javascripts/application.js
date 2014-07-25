@@ -16,6 +16,7 @@
 //= require backbone
 //= require bootstrap
 //= require serializeJSON
+//= require youtube_api_iframe
 
 
 //= require underscore

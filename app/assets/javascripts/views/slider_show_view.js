@@ -7,6 +7,12 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.collection = options.collection; 
     this.name = options.name
     
+    this.listenTo(
+      this.collection, 
+      "add", 
+      this.addVideo
+    )
+    
     this.collection.each(function(video) {
       view.addVideo(video)
     });

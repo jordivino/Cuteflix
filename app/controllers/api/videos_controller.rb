@@ -1,7 +1,11 @@
 class Api::VideosController < ApplicationController
 
   def index
-    @videos = Video.includes(:tags)
+    if params[:my_list]
+      @videos = current_user.my_list_videos.includes(:tags)
+    else 
+      @videos = Video.includes(:tags)
+    end 
     render :index
   end 
 
@@ -9,11 +13,7 @@ class Api::VideosController < ApplicationController
     @video = Video.includes(:tags).find(params[:id])
     render :show
   end 
-  
-  def my_list
-    @my_list_videos = current_user.my_list_videos
-    render :json => @my_list_videos
-  end
+
 
 end 
   

@@ -7,14 +7,10 @@ window.Cuteflix = {
     Cuteflix.videos = new Cuteflix.Collections.Videos();
     Cuteflix.myListVideos = new Cuteflix.Collections.Videos();
     Cuteflix.tags = new Cuteflix.Collections.Tags();
-    Cuteflix.tags.fetch({
-      success: function() {
-        var $rootEl = $("#content");
-        new Cuteflix.Routers.AppRouter($rootEl);
-        Backbone.history.start();
-      }
-    })
-
+    
+    var $rootEl = $("#content");
+    new Cuteflix.Routers.AppRouter($rootEl);
+    Backbone.history.start();
   }
 };
 
