@@ -4,4 +4,14 @@
 </a>
 
 
-<div class="video-title"><%= video.get("title") %></div>
+<span class="video-title"><%= video.get("title") %></span>
+
+<span class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Add to My List</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Add to Queue</a></li>
+  </ul>
+</span>
