@@ -8,6 +8,7 @@
 
 user = User.create(
   :email => "philpee2@gmail.com", 
+  :username => "Phil",
   :password => "password"
 )
 
@@ -66,6 +67,37 @@ v11 = Video.create(
   :ytid => "CORZYXxVrzY"
 )
 
+v12 = Video.create(
+  :title => "Cuteness Overload: Cutest Puppies Ever Seen on Video", 
+  :ytid => "RCNdSc8_qF4"
+)
+
+v13 = Video.create(
+  :title => "Puppies on Slides - Compilation || CFS", 
+  :ytid => "x0wiy7KrJzM"
+)
+
+v14 = Video.create(
+  :title => "Cookie the Little Penguin at the Cincinnati Zoo", 
+  :ytid => "3wTWWjYTe1I"
+)
+
+v15 = Video.create(
+  :title => "Red Panda Does Gymnastic Rings Pull-Ups", 
+  :ytid => "V4RX15cxI28"
+)
+
+v16 = Video.create(
+  :title => "Cute pandas playing on the slide", 
+  :ytid => "sGF6bOi1NfA"
+)
+
+
+
+
+
+
+
 catsTag = Tag.create(:name => "Cats")
 dogsTag = Tag.create(:name => "Dogs")
 bunniesTag = Tag.create(:name => "Bunnies")
@@ -78,12 +110,17 @@ v3.tags.push(dogsTag)
 v5.tags.push(dogsTag)
 v10.tags.push(dogsTag)
 v11.tags.push(dogsTag)
+v12.tags.push(dogsTag)
+v13.tags.push(dogsTag)
 v4.tags.push(catsTag)
 v1.tags.push(catsTag)
 v9.tags.push(catsTag)
 v6.tags.push(bunniesTag)
 v7.tags.push(bunniesTag)
 v8.tags.push(bunniesTag)
+v14.tags.push(wildlifeTag)
+v15.tags.push(wildlifeTag)
+v16.tags.push(wildlifeTag)
 
 
 user.my_list_videos.push(v1)

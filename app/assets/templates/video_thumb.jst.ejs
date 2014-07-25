@@ -7,11 +7,17 @@
 <span class="video-title"><%= video.get("title") %></span>
 
 <span class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-plus"></span>
-  </button>
+    <span class="glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown"></span>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Add to My List</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Add to Queue</a></li>
+    <% if (video.isInMyList()) { %>
+      <li class="dropdown-menu-item remove-list">Remove from My List</li>
+    <% } else { %>
+      <li class="dropdown-menu-item add-list">Add to My List</li>
+    <% } %>
+    
+    <li class="dropdown-menu-item add-queu">Add to Queue</li>
+    
   </ul>
 </span>
+
+

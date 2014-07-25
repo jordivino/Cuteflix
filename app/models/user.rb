@@ -8,6 +8,7 @@
 #  session_token   :string(255)      not null
 #  created_at      :datetime
 #  updated_at      :datetime
+#  username        :string(255)
 #
 
 # require 'bcrpyt'
@@ -26,7 +27,6 @@ class User < ActiveRecord::Base
     :source => :video
   ) 
 
-  
   attr_reader :password
   
   def ensure_session_token

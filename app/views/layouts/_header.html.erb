@@ -12,7 +12,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
-        <%= button_to "Sign Out", session_url, :method => :delete, :class => "btn btn-primary navbar-btn" %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to current_user.username, "" %></li>
+        <li><%= button_to "Sign Out", session_url, :method => :delete, :class => "btn btn-primary navbar-btn" %></li>
+      </ul>
       <% else %>
         <ul class="nav navbar-nav">
           <li><%= link_to "Sign in", new_session_url %></li>

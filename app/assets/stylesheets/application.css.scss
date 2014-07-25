@@ -21,7 +21,7 @@
 }
 
 
-form .email, .password {
+form .email, .password, .username {
   font-size: 16px;
   padding: 10px 10px;
   width: 390px;
@@ -46,29 +46,59 @@ form .btn {
 
 
 
-body * {
-  /*border: thin dotted blue;*/
-}
+
 
 
 .videos-slider {
   position: relative;
   height: 210px;
   background-color: #E0E0E0 ;
-  margin: 10px;
   
-    
-  overflow: hidden;
+
+
 }
 
 .track {
   position: absolute;
-  left: 10px;
+  left: 0px;
+  right: 0px;
   margin: 0;
   border: 0;
-  width: 2000px;
+  white-space: nowrap;
+  * { 
+    white-space: normal;
+  }
 }
 
+
+.thumbs {
+  /*
+  border: thin dotted blue;
+  * { border: thin dotted blue; }
+  */
+}
+
+
+
+.dropdown {
+  cursor: pointer;
+  float: right;
+
+}
+
+.dropdown-menu-item {
+  padding: 3px 20px;
+  white-space: nowrap;
+}
+
+.dropdown-menu-item:hover {
+  background-color: rgb(248,248,248)  
+};
+
+.video-title {
+  float: left;
+  width: 85%;
+}
 
 .thumbs {
   

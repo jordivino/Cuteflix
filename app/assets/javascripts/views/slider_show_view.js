@@ -13,10 +13,24 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
       this.addVideo
     )
     
+    
+    this.listenTo(
+      this.collection,
+      "remove",
+      this.removeThumbView
+    )
+     
+    this.listenTo(
+      this.collection, 
+      "remove", 
+      this.render
+    )
+    
     this.collection.each(function(video) {
       view.addVideo(video)
     });
   }, 
+
   
   addVideo: function(videoModel) { 
     var videoThumbView = new Cuteflix.Views.VideoThumbView({
@@ -24,6 +38,20 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     });
     this.addSubview(".track", videoThumbView);
   }, 
+  
+  removeThumbView: function(videoModel) {
+    var subviews = this.subviews(".track");
+    var deletingSubview; 
+    for (var i = 0; i < subviews.length; i++) {
+      var subview = subviews[i];
+      if (subview.model.get("id") === videoModel.get("id")) {
+        var deletingSubview = subview; 
+        break; 
+      } 
+    }
+    this.removeSubview(".track", deletingSubview)
+    this.render();
+  },
   
   render: function() {
     var view = this; 
