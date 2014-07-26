@@ -37,19 +37,8 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     });
   }, 
   
-  // addAllVideos: function() {
-  //   var view = this;
-  //   this.removeAllSubviews(".track");
-  //   // debugger
-  //
-  //   var view = this;
-  //   this.collection.each(function(video){
-  //     view.addVideo(video);
-  //   })
-  //   this.render()
-  // },
-  
   addListVideo: function(videoModel) {
+    // Adds video to front of collection
     var subview = new Cuteflix.Views.VideoThumbView({
       model: videoModel
     });
