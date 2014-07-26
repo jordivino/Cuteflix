@@ -4,6 +4,8 @@ Cuteflix.Collections.Videos = Backbone.Collection.extend({
   
   model: Cuteflix.Models.Video,
   
+  // comparator: 
+  
   getOrFetch: function(id) {
     var videos = this; 
     var video = videos.get(id);

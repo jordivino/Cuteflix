@@ -122,8 +122,3 @@ v14.tags.push(wildlifeTag)
 v15.tags.push(wildlifeTag)
 v16.tags.push(wildlifeTag)
 
-
-user.my_list_videos.push(v1)
-user.my_list_videos.push(v5)
-user.my_list_videos.push(v6)
-

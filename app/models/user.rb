@@ -14,12 +14,12 @@
 # require 'bcrpyt'
 
 class User < ActiveRecord::Base
-  validates :email, :password_digest, :session_token, :presence => true
+  validates :email, :username, :password_digest, :session_token, :presence => true
   validates :email, :uniqueness => true
   
   before_validation :ensure_session_token
   
-  has_many :my_listings
+  has_many :my_listings, -> { order('created_at DESC') }
   
   has_many(
     :my_list_videos, 
