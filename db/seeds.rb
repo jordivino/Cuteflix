@@ -92,8 +92,10 @@ v16 = Video.create(
   :ytid => "sGF6bOi1NfA"
 )
 
-
-
+v17 = Video.create(
+  :title => "Pussies in boot", 
+  :ytid => "HHEBAIpRl4s"
+)
 
 
 
@@ -115,6 +117,7 @@ v13.tags.push(dogsTag)
 v4.tags.push(catsTag)
 v1.tags.push(catsTag)
 v9.tags.push(catsTag)
+v17.tags.push(catsTag)
 v6.tags.push(bunniesTag)
 v7.tags.push(bunniesTag)
 v8.tags.push(bunniesTag)

@@ -5,15 +5,22 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
   className: "thumbs",
   
   initialize: function(options) {
-    this.model = options.model 
+    this.model = options.model; 
+    
+    this.listenTo( 
+      this.model, 
+      "removeFromList", 
+      this.render
+    );
   }, 
   
   render: function() { 
     var renderedContent = this.template({
       video: this.model
     }); 
-    
+  
     this.$el.html(renderedContent); 
+    this.$(".play-icon").hide();
     
     return this;
   }, 
@@ -21,7 +28,7 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
   events: {
     "click .remove-list": "removeFromMyList", 
     "click .add-list": "addToMyList", 
-    "click .add-queue": "addToQueue"
+    "click .add-queue": "addToQueue",
   }, 
   
   removeFromMyList: function(event) {
@@ -31,6 +38,8 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
       url: "/api/videos/" + id + "/remove_my_list",
       type: "GET",
     });
+    this.model.trigger("removeFromList");
+  
   }, 
   
   addToMyList: function(event) {
@@ -41,10 +50,12 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
       url: "/api/videos/" + id + "/add_my_list",
       type: "GET",
     });
+    this.render();
      
   }, 
   
-  addToQueue: function(event) {}
+  addToQueue: function(event) {},
+
 
   
 });

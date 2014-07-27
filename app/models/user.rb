@@ -52,9 +52,7 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(email, secret)
     user = User.find_by_email(email)
     return nil if user.nil?
-    user.is_password?(secret)
-    
-    user
+    user.is_password?(secret) ? user : nil
   end 
   
   def self.generate_session_token
