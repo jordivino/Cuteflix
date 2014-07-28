@@ -10,6 +10,7 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
   }, 
   
   videosIndex: function() {
+    // TODO: Combine this into one request? 
     Cuteflix.myListVideos.fetch({
       data: {
         my_list: true

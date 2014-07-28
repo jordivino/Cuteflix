@@ -37,5 +37,20 @@
       value="Sign up" class="btn btn-primary"/>
   </form>
   
+  <form id="guest-sign-in" action="<%=guest_session_url%>" method="post">
+  
+    <input 
+      type="hidden" 
+      name="authenticity_token" 
+      value="<%=form_authenticity_token%>" />
+    
+    <input 
+      type="submit" 
+      value="Guest Sign in" 
+      class="btn btn-primary" 
+      id="guest-button"/>
+  
+  </form>
+  
 </div>
 

@@ -4,7 +4,7 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
   
   initialize: function(options){
     
-    this.model = options.model
+    this.model = options.model;
 
     this.listenTo(
       this.model,
@@ -45,12 +45,11 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
   }, 
   
   addToRecent: function() {
-    Cuteflix.recentVideos.add(this.model, { silent: true });
-    Cuteflix.recentVideos.trigger("prepend", this.model);
+    Cuteflix.recentVideos.unshift(this.model, { silent: true });
     var id = this.model.id;
     $.ajax ({
       url: "/api/videos/" + id + "/add_recent",
-      type: "GET",
+      type: "POST",
     });
   }
   
