@@ -3,6 +3,7 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
   template: JST["videos_index"],
   
   initialize: function(options) {
+    
     var view = this;
     this.tags = options.tags;
     this.myListVideos = options.myListVideos;

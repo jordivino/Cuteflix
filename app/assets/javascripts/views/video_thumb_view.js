@@ -2,7 +2,7 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
   
   template: JST["video_thumb"], 
   
-  className: "thumbs",
+  className: "thumbs thumbnail",
   
   initialize: function(options) {
     this.model = options.model; 
@@ -21,6 +21,15 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     }); 
   
     this.$el.html(renderedContent); 
+    
+    var that = this;
+    setTimeout(function () {
+      that.$(".toggle-list").tooltip({
+        delay: { show: 500 },
+        placement: "left auto"
+      });
+    }, 0)
+    
     
     return this;
   }, 

@@ -17,6 +17,7 @@
 
 body {
   padding-top: 70px;
+  margin-left: 10px;
 }
 
 
@@ -49,18 +50,19 @@ form  {
 }
 
 $slider-color: #E0E0E0;
+$slider-height: 260px;
 .videos-slider {
   position: relative;
-  height: 210px;
+  height: $slider-height;
   background-color: $slider-color;  
   
   overflow: hidden;
 
 }
 
-.left, .right {
+.arrow {
   position: absolute;
-  height: 210px;
+  height: $slider-height;
   background-color: black;
   width: 50px;
   z-index: 1;
@@ -70,10 +72,10 @@ $slider-color: #E0E0E0;
   };
 }
 
-.left {
+.left-arrow {
   left: 0;
 }
-.right {
+.right-arrow {
   right: 0;
 }
 
@@ -88,6 +90,7 @@ $slider-color: #E0E0E0;
 
 
 .track {
+  height: $slider-height;
   position: absolute;
   left: 0px;
   right: 0px;
@@ -97,6 +100,9 @@ $slider-color: #E0E0E0;
   * { 
     white-space: normal;
   }
+  
+//  padding-top: 20px;
+//  padding-bottom: 10px;
 }
 
 .thumbs {
@@ -109,23 +115,19 @@ $slider-color: #E0E0E0;
   display: inline-block;
   vertical-align: top;
   
-  padding: 0;
   padding-top: 5px;
-  
+  width: 250px;
+  height: 95%;
   margin: 5px;
-  margin-top: 10px;
- 
+  margin-top: 6px;
 
-  width: 200px;
-  height: 200px;
 
 }
 
 .image {
-  width: 200px;
-  height: 150px;
+  width: 250px;
+  height: 188px;
   margin: 0 auto;
-  margin-bottom: 5px;
   &:hover {
     opacity: 0.7;
   };
@@ -137,8 +139,18 @@ $slider-color: #E0E0E0;
   -webkit-transition: opacity 0.1s;
 }
 
+.under-image {
+  height: 53px;
+  margin-top: 3px;
+  float: bottom;
+  padding: 3px;
+  position: relative;
+}
+
 .toggle-list {
   cursor: pointer;
+  position: absolute;
+  top: 10px;
 }
 
 /*
@@ -160,7 +172,9 @@ $dropdown-background: rgb(248,248,248);
 
 .video-title {
   float: left;
-  width: 85%;
+  width: 80%;
+  font-size: 15px;
+  margin-left: 3px;
 }
 
 #player {

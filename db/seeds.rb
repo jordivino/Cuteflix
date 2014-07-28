@@ -13,7 +13,7 @@ user = User.create(
 )
 
 v1 = Video.create(
-  :title => "Cat In A Shark Costume Chases A Duck While Riding A Roomba",
+  :title => "Cat In A Shark Costume Rides A Roomba",
   :ytid => "Of2HU3LGdbo"
 )
 
@@ -33,7 +33,7 @@ v4 = Video.create(
 )
 
 v5 = Video.create(
-  :title => "Impossibly Cute Husky Puppy: Wolfie's First Week",
+  :title => "Impossibly Cute Husky Puppy",
   :ytid => "32yJSz9j4XY"
 )
 
@@ -48,12 +48,12 @@ v7 = Video.create(
 )
 
 v8 = Video.create(
-  :title => "World Cutest Little Bunny Rabbit! - Lucky Latte #003",
+  :title => "World Cutest Little Bunny Rabbit!",
   :ytid => "q3SnbP3j6Zg"
 )
 
 v9 = Video.create(
-  :title => "Cute Kitten Playing And Sleeping | Too Cute!", 
+  :title => "Cute Kitten Playing And Sleeping", 
   :ytid => "vpqA0OwtvK0"
 )
 
@@ -68,17 +68,17 @@ v11 = Video.create(
 )
 
 v12 = Video.create(
-  :title => "Cuteness Overload: Cutest Puppies Ever Seen on Video", 
+  :title => "Cutest Puppies Ever Seen on Video", 
   :ytid => "RCNdSc8_qF4"
 )
 
 v13 = Video.create(
-  :title => "Puppies on Slides - Compilation || CFS", 
+  :title => "Puppies on Slides", 
   :ytid => "x0wiy7KrJzM"
 )
 
 v14 = Video.create(
-  :title => "Cookie the Little Penguin at the Cincinnati Zoo", 
+  :title => "Cookie the Little Penguin", 
   :ytid => "3wTWWjYTe1I"
 )
 

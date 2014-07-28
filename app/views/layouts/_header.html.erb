@@ -23,15 +23,17 @@
         </ul>
       <% end %>
       
-      
-      
-    <% if flash[:errors] %>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-      <%= flash[:errors].join("<br>") %>
-      </div>
-    <% end %>
+
     
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+      
+      
+<% if flash[:errors] %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+  <%= flash[:errors].join("<br>") %>
+  </div>
+<% end %>

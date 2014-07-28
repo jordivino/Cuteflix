@@ -5,7 +5,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   initialize: function(options) {
     var view = this; 
     this.collection = options.collection; 
-    this.name = options.name
+    this.name = options.name;
     
     this.listenTo(
       this.collection, 
@@ -89,10 +89,10 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   }, 
   
   events: {
-    "mouseenter .left": "slideLeft",
-    "mouseenter .right": "slideRight",
-    "mouseleave .left": "stopLeft",
-    "mouseleave .right": "stopRight", 
+    "mouseenter .left-arrow": "slideLeft",
+    "mouseenter .right-arrow": "slideRight",
+    "mouseleave .left-arrow": "stopLeft",
+    "mouseleave .right-arrow": "stopRight", 
     "mouseenter .videos-slider": "showArrows",
     "mouseleave .videos-slider": "hideArrows"
   }, 
@@ -110,8 +110,15 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     var view = this; 
     
     this.intervalID = setInterval(function() {
-      var left = parseInt(view.$(".track").css("left"))
-      view.$(".track").css("left", left - 2)
+      var left = parseInt(view.$(".track").css("left"));
+      view.$(".track").css("left", left - 2);
+      
+      var lefts = view.subviews(".track").map(function(subview) {
+        subview.css("left");
+      });
+      
+      console.log(lefts)
+      
     }, 10);
   },
   

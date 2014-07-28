@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(user_params[:email], user_params[:password])
     if @user.nil?
-      flash[:errors] = ["Email or password are invalid"]
+      flash.now[:errors] = ["Email or password are invalid"]
       render :new
     else 
       log_in!(@user)
