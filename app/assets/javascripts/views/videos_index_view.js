@@ -4,8 +4,9 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
   
   initialize: function(options) {
     var view = this;
-    this.tags = options.tags
-    this.myListVideos = options.myListVideos
+    this.tags = options.tags;
+    this.myListVideos = options.myListVideos;
+    this.recentVideos = options.recentVideos;
     
     this.listenTo(
       this.tags, 
@@ -25,6 +26,10 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
       collection: this.myListVideos
     });
     
+    this.addPersonalSlider({
+      name: "Recently Watched",
+      collection: this.recentVideos
+    });
     
     this.tags.each(function(tag){
       view.addTagSlider(tag);

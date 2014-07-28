@@ -20,12 +20,20 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
   
   has_many :my_listings, -> { order('created_at DESC') }
-  
+    
   has_many(
     :my_list_videos, 
     :through => :my_listings, 
     :source => :video
   ) 
+  
+  has_many :video_plays, -> { order('created_at DESC').limit('10') }
+  
+  has_many(
+    :recent_videos, 
+    :through => :video_plays, 
+    :source => :video
+  )
 
   attr_reader :password
   

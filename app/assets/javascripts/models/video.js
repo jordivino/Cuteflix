@@ -17,7 +17,11 @@ Cuteflix.Models.Video = Backbone.Model.extend({
   }, 
   
   isInMyList: function() {
-    return Cuteflix.myListVideos.indexOf(this) !== -1;
+    var myListIds = Cuteflix.myListVideos.map(function(video) {
+      return video.id;
+    })
+    
+    return myListIds.indexOf(this.id) !== -1;
   }
   
   

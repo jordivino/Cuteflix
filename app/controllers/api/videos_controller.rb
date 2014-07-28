@@ -3,6 +3,8 @@ class Api::VideosController < ApplicationController
   def index
     if params[:my_list]
       @videos = current_user.my_list_videos.includes(:tags)
+    elsif params[:recent]
+      @videos = current_user.recent_videos.includes(:tags)
     else 
       @videos = Video.includes(:tags)
     end 
@@ -26,6 +28,11 @@ class Api::VideosController < ApplicationController
     render :json => current_user.my_list_videos.includes(:tags)
   end 
 
+  def add_recent
+    video_id = params[:id]
+    current_user.recent_video_ids += [video_id]
+    render :json => current_user.recent_videos.includes(:tags)
+  end 
 
 end 
   

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -26,11 +26,9 @@
       
       
     <% if flash[:errors] %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <%= flash[:errors].join("<br>") %>
-    </div>
-    
+      <div class="alert alert-warning alert-dismissible" role="alert">
+      <%= flash[:errors].join("<br>") %>
+      </div>
     <% end %>
     
      

@@ -1,7 +1,7 @@
 
 
   <a
-    href="<%= "/#/videos/" + video.get("id") %>">
+    href="<%= "/#/videos/" + video.id %>">
     <img 
       src="<%= "http://img.youtube.com/vi/" + video.get("ytid") + "/0.jpg" %>" 
       class="image">
@@ -12,7 +12,17 @@
 
 <span class="video-title"><%= video.get("title") %></span>
 
-<span class="dropdown">
+
+<% if (video.isInMyList()) { %>
+  <%=   console.log(video.get("title") + "from collection of length " + video.collection.length + " is in My List")%>
+  <span class="glyphicon glyphicon-minus remove-list toggle-list"></span>
+<% } else { %>
+  <span class="glyphicon glyphicon-plus add-list toggle-list"></span>
+<% } %>
+
+
+
+<!-- <span class="dropdown">
     <span class="glyphicon glyphicon-plus dropdown-toggle" data-toggle="dropdown"></span>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <% if (video.isInMyList()) { %>
@@ -20,10 +30,10 @@
     <% } else { %>
       <li class="dropdown-menu-item add-list">Add to My List</li>
     <% } %>
-    
+
     <li class="dropdown-menu-item add-queu">Add to Queue</li>
-    
+
   </ul>
-</span>
+</span> -->
 
 

@@ -10,7 +10,9 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
       this.model,
       "sync",
       this.render
-    )
+    ); 
+    
+    this.addToRecent();
   }, 
   
   render: function() {
@@ -39,6 +41,16 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
         rel: "0",
         showinfo: "0"
       },
+    });
+  }, 
+  
+  addToRecent: function() {
+    Cuteflix.recentVideos.add(this.model, { silent: true });
+    Cuteflix.recentVideos.trigger("prepend", this.model);
+    var id = this.model.id;
+    $.ajax ({
+      url: "/api/videos/" + id + "/add_recent",
+      type: "GET",
     });
   }
   

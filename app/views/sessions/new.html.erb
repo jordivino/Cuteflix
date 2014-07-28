@@ -6,7 +6,7 @@
   <input 
     type="hidden" 
     name="authenticity_token" 
-    value="<%=form_authenticity_token%>" />
+    value="<%=form_authenticity_token%>">
   
   
   <input 
@@ -14,16 +14,33 @@
     name="user[email]" 
     class="email" 
     placeholder="Email"
-    /><br>
+  ><br>
 
   <input 
     type="password" 
     name="user[password]" 
     class="password" 
     placeholder="Password"
-    value="" /><br>
-  <input type="submit" value="Sign in" class="btn btn-primary"/>
+  ><br>
+    
+  <input type="submit" value="Sign in" class="btn btn-primary">
 </form>
+
+<form id="guest-sign-in" action="<%=guest_session_url%>" method="post">
+  
+  <input 
+    type="hidden" 
+    name="authenticity_token" 
+    value="<%=form_authenticity_token%>" />
+    
+  <input 
+    type="submit" 
+    value="Guest Sign in" 
+    class="btn btn-info" 
+    id="guest-button"/>
+  
+</form>
+  
   
 </div>
 

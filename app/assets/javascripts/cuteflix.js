@@ -6,7 +6,9 @@ window.Cuteflix = {
   initialize: function() {
     Cuteflix.videos = new Cuteflix.Collections.Videos();
     Cuteflix.myListVideos = new Cuteflix.Collections.Videos();
+    Cuteflix.recentVideos = new Cuteflix.Collections.Videos();
     Cuteflix.tags = new Cuteflix.Collections.Tags();
+    
     
     var $rootEl = $("#content");
     new Cuteflix.Routers.AppRouter($rootEl);

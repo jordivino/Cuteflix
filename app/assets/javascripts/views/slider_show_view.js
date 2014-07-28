@@ -11,26 +11,25 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
       this.collection, 
       "add", 
       this.addVideo
-    )
+    );
     
     this.listenTo(
       this.collection,
       'prepend',
       this.addListVideo
-    )
-    
+    );
     
     this.listenTo(
       this.collection,
       "remove",
       this.removeThumbView
-    )
+    );
      
     this.listenTo(
       this.collection, 
       "remove", 
       this.render
-    )
+    );
     
     this.collection.each(function(video) {
       view.addVideo(video)
@@ -67,7 +66,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     var deletingSubview; 
     for (var i = 0; i < subviews.length; i++) {
       var subview = subviews[i];
-      if (subview.model.get("id") === videoModel.get("id")) {
+      if (subview.model.id === videoModel.id) {
         var deletingSubview = subview; 
         break; 
       } 
@@ -83,6 +82,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     }); 
     
     this.$el.html(renderedContent); 
+    this.$(".arrow").hide();
 
     this.attachSubviews();
     return this;  
@@ -92,7 +92,9 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseenter .left": "slideLeft",
     "mouseenter .right": "slideRight",
     "mouseleave .left": "stopLeft",
-    "mouseleave .right": "stopRight"
+    "mouseleave .right": "stopRight", 
+    "mouseenter .videos-slider": "showArrows",
+    "mouseleave .videos-slider": "hideArrows"
   }, 
   
   slideLeft: function(event) {
@@ -120,5 +122,13 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   stopRight: function(event) {
     clearInterval(this.intervalID)
   },
+  
+  showArrows: function(event) {
+    this.$(".arrow").show();
+  },
+  
+  hideArrows: function(event) {
+    this.$(".arrow").hide();
+  }
   
 });
