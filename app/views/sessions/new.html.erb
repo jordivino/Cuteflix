@@ -1,47 +1,55 @@
-<div class="auth">
-  
-<h2>Sign in</h2>
 
-<form id="sign-in" action="<%=session_url%>" method="post">
-  <input 
-    type="hidden" 
-    name="authenticity_token" 
-    value="<%=form_authenticity_token%>">
-  
-  
-  <input 
-    type="text" 
-    name="user[email]" 
-    class="email" 
-    placeholder="Email"
-  ><br>
 
-  <input 
-    type="password" 
-    name="user[password]" 
-    class="password" 
-    placeholder="Password"
-  ><br>
+
+<div class="auth-container">
+
+  <div class="auth">
+
+  
+    <h2>Sign in</h2>
+
+    <form id="sign-in" action="<%=session_url%>" method="post">
+      <input 
+        type="hidden" 
+        name="authenticity_token" 
+        value="<%=form_authenticity_token%>">
+  
+  
+      <input 
+        type="text" 
+        name="user[email]" 
+        class="email" 
+        placeholder="Email"
+      ><br>
+
+      <input 
+        type="password" 
+        name="user[password]" 
+        class="password" 
+        placeholder="Password"
+      ><br>
     
-  <input type="submit" value="Sign in" class="btn btn-primary">
-</form>
+      <input type="submit" value="Sign in" class="btn btn-primary">
+    </form>
 
-<form id="guest-sign-in" action="<%=guest_session_url%>" method="post">
+    <form id="guest-sign-in" action="<%=guest_session_url%>" method="post">
   
-  <input 
-    type="hidden" 
-    name="authenticity_token" 
-    value="<%=form_authenticity_token%>" />
+      <input 
+        type="hidden" 
+        name="authenticity_token" 
+        value="<%=form_authenticity_token%>" />
     
-  <input 
-    type="submit" 
-    value="Guest Sign in" 
-    class="btn btn-primary" 
-    id="guest-button"/>
+      <input 
+        type="submit" 
+        value="Guest Sign in" 
+        class="btn btn-primary" 
+        id="guest-button"/>
   
-</form>
+    </form>
   
   
+  </div>
+
 </div>
 
 

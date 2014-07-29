@@ -16,14 +16,25 @@
 @import "font-awesome";
 
 body {
-  padding-top: 70px;
-  margin-left: 10px;
+  padding-top: 50px;
 }
 
+.auth-container {
+  background-image: url('splash_cat.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  padding-top: 100px;
+  margin: 0;
+}
 
 .auth {
   padding-left: 100px;
+  height: 500px;
+  position: relative;
+
 }
+
 
 
 #guest-button {
@@ -57,7 +68,10 @@ $slider-height: 260px;
   background-color: $slider-color;  
   
   overflow: hidden;
+}
 
+#content {
+  margin-left: 10px;
 }
 
 .arrow {
@@ -89,28 +103,20 @@ $slider-height: 260px;
 
 
 
-.track {
-  height: $slider-height;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  margin: 0;
-  border: 0;
-  white-space: nowrap;
-  * { 
-    white-space: normal;
-  }
-  
-//  padding-top: 20px;
-//  padding-bottom: 10px;
-}
+//.track {
+//  height: $slider-height;
+//  position: absolute;
+//  left: 0px;
+//  right: 0px;
+//  margin: 0;
+//  border: 0;
+//  white-space: nowrap;
+//  * {
+//    white-space: normal;
+//  }
+//}
 
 .thumbs {
-  
-  /*
-  border: thin dotted blue;
-  * { border: thin dotted blue; }
-  */
   
   display: inline-block;
   vertical-align: top;

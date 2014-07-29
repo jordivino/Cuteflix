@@ -17,11 +17,12 @@
 //= require bootstrap
 //= require serializeJSON
 //= require youtube_api_iframe
-
+//= require jquery.simplyscroll
 
 //= require underscore
 //= require backbone
 //= require cuteflix
+
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

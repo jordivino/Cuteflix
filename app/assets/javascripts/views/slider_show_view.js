@@ -85,6 +85,14 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.$(".arrow").hide();
 
     this.attachSubviews();
+    
+    // setTimeout(function () {
+      (function($) {
+        $(function() {
+          view.$(".scroller").simplyScroll();
+        });
+      })(jQuery);
+    // }, 0)
     return this;  
   }, 
   
@@ -112,12 +120,6 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.intervalID = setInterval(function() {
       var left = parseInt(view.$(".track").css("left"));
       view.$(".track").css("left", left - 2);
-      
-      var lefts = view.subviews(".track").map(function(subview) {
-        subview.css("left");
-      });
-      
-      console.log(lefts)
       
     }, 10);
   },
