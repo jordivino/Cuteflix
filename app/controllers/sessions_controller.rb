@@ -13,11 +13,6 @@ class SessionsController < ApplicationController
     end 
   end 
   
-  def guest
-    @user = User.find_by_credentials("guest@cuteflix.com", "password")
-    log_in!(@user)
-  end 
-  
   def destroy
     log_out!
   end 

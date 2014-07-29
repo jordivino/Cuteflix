@@ -7,9 +7,6 @@ Cuteflix::Application.routes.draw do
     end 
   end 
   resource :session, :only => [:new, :create, :destroy] do 
-    member do 
-      post :guest
-    end 
   end 
   
   namespace :api, :defaults => {:format => :json} do 

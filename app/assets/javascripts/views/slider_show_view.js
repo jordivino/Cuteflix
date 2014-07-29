@@ -86,9 +86,9 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
 
     this.attachSubviews();
     
-    $(document).ready(function() {
-      view.scrolling();
-    });
+    // $(document).ready(function() {
+    //   view.scrolling();
+    // });
 
     return this;  
   }, 
@@ -96,7 +96,6 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   scrolling: function() {
     var view = this; 
     setTimeout(function () {
-    	// Init Smooth Div Scroll	
     	view.$("#makeMeScrollable").smoothDivScroll({
     		manualContinuousScrolling: true, 
         hotSpotScrolling: true, 
@@ -118,33 +117,9 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   
   slideLeft: function(event) {
     var view = this; 
-    
     this.intervalID = setInterval(function() {
-      // var left = parseInt(view.$(".track").css("left"));
-      // view.$(".track").css("left", left + 2);
-      
-      view.subviews(".track").forEach(function(subview) {
-        // debugger
-        
-
-        var center = subview.el.getBoundingClientRect().left + 125
-        var newCenter = center + 20
-        if (subview.model.get("title") === "Puppies on Slides") {
-          console.log(center)
-        }
-        subview.$el.css("transform", "translate(" + newCenter + "px)")
-      
-        
-        // lefts.push(subview.el.getBoundingClientRect().left);
-        if (subview.el.getBoundingClientRect().left > window.innerWidth) {
-          // view.removeSubview(".track", subview);
-          // view.queueToLeft(subview);
-          // console.log(subview.model.get("title") + " is off the screen")
-        }
-        
-      });
-
-      
+      var left = parseInt(view.$(".track").css("left"));
+      view.$(".track").css("left", left + 2);
     }, 10);
   },
   
@@ -153,7 +128,6 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.intervalID = setInterval(function() {
       var left = parseInt(view.$(".track").css("left"));
       view.$(".track").css("left", left - 2);
-      
     }, 10);
   },
   

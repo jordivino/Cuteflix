@@ -30,7 +30,7 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
     var player;
     player = new YT.Player('player', {
       height: '100%',
-      width: '90%',
+      width: '100%',
       videoId: this.model.get("ytid"),
       playerVars: {
         autohide: "1",

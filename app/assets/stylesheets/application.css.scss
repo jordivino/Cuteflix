@@ -22,7 +22,7 @@ $dark-blue: #096EB2;
 $light-grey: #D8D8D8;
 
 body {
-  padding-top: 50px;
+//  padding-top: 50px;
   background-color: $light-blue;
 }
 
@@ -69,7 +69,12 @@ form  {
   position: absolute;
 }
 
-.slider-name, .btn-primary  { 
+.btn-primary  { 
+  color: white;
+}
+
+.slider-name {
+  margin-left: 20px;
   color: white;
 }
 
@@ -101,14 +106,12 @@ $slider-height: 260px;
   position: relative;
   height: $slider-height;
   background-color: $dark-blue; 
-  margin-right: 10px; 
+  margin-right: 20px; 
+  margin-left: 20px;
   
   overflow: hidden;
 }
 
-#content {
-  margin-left: 10px;
-}
 
 .arrow {
   position: absolute;
@@ -222,8 +225,6 @@ $dropdown-background: rgb(248,248,248);
 
 #player {
   display: block;
-  margin: auto;
-  margin-top: 20px;
 }
 
 #back-button {
@@ -239,9 +240,16 @@ $dropdown-background: rgb(248,248,248);
   };
 }
 
-
-
-
+#content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  > div {
+    height: 100%;
+  }
+}
 
 
 

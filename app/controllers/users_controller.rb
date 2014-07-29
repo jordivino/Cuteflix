@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def guest
     t = Time.new
     code = t.year.to_s + t.mon.to_s + t.day.to_s + t.hour.to_s + t.min.to_s
-    username = "Guest" + code
+    username = "Guest"
     email = "guest" + code + "@cuteflix.com"
     password = "password"
     @guest = User.new(
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
     )
     
     @guest.save
+    @guest.my_list_video_ids = [1, 2, 4, 7, 9]
+    @guest.recent_video_ids = [1, 3, 4, 7, 10, 14]
+    @guest.save
+    
     log_in!(@guest)
   end 
 
