@@ -1,7 +1,11 @@
 Cuteflix::Application.routes.draw do
   root :to => "static_pages#root"
 
-  resources :users, :only => [:new, :create] 
+  resources :users, :only => [:new, :create] do
+    collection do 
+      post :guest
+    end 
+  end 
   resource :session, :only => [:new, :create, :destroy] do 
     member do 
       post :guest

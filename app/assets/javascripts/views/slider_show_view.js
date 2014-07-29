@@ -85,9 +85,27 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.$(".arrow").hide();
 
     this.attachSubviews();
+    
+    $(document).ready(function() {
+      view.scrolling();
+    });
 
     return this;  
   }, 
+  
+  scrolling: function() {
+    var view = this; 
+    setTimeout(function () {
+    	// Init Smooth Div Scroll	
+    	view.$("#makeMeScrollable").smoothDivScroll({
+    		manualContinuousScrolling: true, 
+        hotSpotScrolling: true, 
+        visibleHotSpotBackgrounds: "onStart", 
+        
+    	});
+    })
+  },
+  
   
   events: {
     "mouseenter .left-arrow": "slideLeft",
@@ -97,19 +115,6 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseenter .videos-slider": "showArrows",
     "mouseleave .videos-slider": "hideArrows"
   }, 
-  
-  queueToLeft: function(subview) {
-    
-    subview.render();
-    this.subviews(".track").unshift(subview);
-
-    this.$(".track").prepend(subview.$el);
-
-    if (subview.attachSubviews) {
-      subview.attachSubviews();
-    }
-		subview.delegateEvents();
-  },
   
   slideLeft: function(event) {
     var view = this; 

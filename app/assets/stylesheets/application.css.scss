@@ -9,13 +9,14 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require smoothDivScroll
  *= require_tree .
  */
 
 @import "bootstrap";
 @import "font-awesome";
 
-
+ 
 $light-blue: #3498db;
 $dark-blue: #096EB2;
 $light-grey: #D8D8D8;
@@ -36,7 +37,7 @@ body {
 }
 
 .auth {
-  padding-left: 100px;
+  padding-left: 50%;
   position: relative;
 }
 
@@ -64,8 +65,12 @@ form  {
   
 }
 
+#content {
+  position: absolute;
+}
+
 .slider-name, .btn-primary  { 
-  color: $light-grey;
+  color: white;
 }
 
 .btn-primary {
@@ -75,9 +80,9 @@ form  {
 
 
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
-  color: $light-grey;
+  color: white;
   &:hover {
-    color: $light-blue;
+    color: $light-grey;
     
   };
 }
@@ -186,6 +191,9 @@ $slider-height: 260px;
   cursor: pointer;
   position: absolute;
   top: 10px;
+  &:hover {
+    color: $light-grey;
+  };
 }
 
 /*
@@ -219,15 +227,19 @@ $dropdown-background: rgb(248,248,248);
 }
 
 #back-button {
-  font-size: 25px;
+  font-size: 30px;
   color: $light-grey;
   position: absolute;
   top: 100px;
   left: 15px;
-  &:hover { 
-    border-bottom: none;
+  text-decoration: none !important; 
+  
+  &:hover {
+    color: white;
   };
 }
+
+
 
 
 
