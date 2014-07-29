@@ -17,7 +17,9 @@
 //= require bootstrap
 //= require serializeJSON
 //= require youtube_api_iframe
-//= require jquery.simplyscroll
+//= require jquery.smoothdivscroll.js
+//= require jquery-ui-1.10.3.custom.min
+//= require jquery.colorbox
 
 //= require underscore
 //= require backbone

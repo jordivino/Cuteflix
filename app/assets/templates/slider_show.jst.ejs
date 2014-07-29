@@ -1,4 +1,4 @@
-<!-- <h3 class="slider-name"><%= name %></h3>
+<h3 class="slider-name"><%= name %></h3>
 <div class="videos-slider">
     <div
       class="left-arrow arrow">
@@ -8,13 +8,22 @@
       class="right-arrow arrow">
       <div class="glyphicon glyphicon-chevron-right"></div>
     </div>
-    <div class="track"></div>
-</div> -->
+    <div class="track" id="makeMeScrollable"></div>
+</div>
 
-
-<h3 class="slider-name"><%= name %></h3>
-
-<ul class="scroller track"></ul>
-
-
-
+<script
+  src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"
+  type="text/javascript">
+  
+  
+  $(document).ready(function () {
+  	// Init Smooth Div Scroll	
+  	$("#makeMeScrollable").smoothDivScroll({
+  		manualContinuousScrolling: true
+  	});
+    
+    $("#makeMeScrollable .thumbs").colorbox({ speed: "500" });
+    
+  });
+  
+</script>

@@ -85,14 +85,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.$(".arrow").hide();
 
     this.attachSubviews();
-    
-    // setTimeout(function () {
-      (function($) {
-        $(function() {
-          view.$(".scroller").simplyScroll();
-        });
-      })(jQuery);
-    // }, 0)
+
     return this;  
   }, 
   
@@ -105,18 +98,53 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseleave .videos-slider": "hideArrows"
   }, 
   
+  queueToLeft: function(subview) {
+    
+    subview.render();
+    this.subviews(".track").unshift(subview);
+
+    this.$(".track").prepend(subview.$el);
+
+    if (subview.attachSubviews) {
+      subview.attachSubviews();
+    }
+		subview.delegateEvents();
+  },
+  
   slideLeft: function(event) {
     var view = this; 
     
     this.intervalID = setInterval(function() {
-      var left = parseInt(view.$(".track").css("left"));
-      view.$(".track").css("left", left + 2)
+      // var left = parseInt(view.$(".track").css("left"));
+      // view.$(".track").css("left", left + 2);
+      
+      view.subviews(".track").forEach(function(subview) {
+        // debugger
+        
+
+        var center = subview.el.getBoundingClientRect().left + 125
+        var newCenter = center + 20
+        if (subview.model.get("title") === "Puppies on Slides") {
+          console.log(center)
+        }
+        subview.$el.css("transform", "translate(" + newCenter + "px)")
+      
+        
+        // lefts.push(subview.el.getBoundingClientRect().left);
+        if (subview.el.getBoundingClientRect().left > window.innerWidth) {
+          // view.removeSubview(".track", subview);
+          // view.queueToLeft(subview);
+          // console.log(subview.model.get("title") + " is off the screen")
+        }
+        
+      });
+
+      
     }, 10);
   },
   
   slideRight: function(event) {
     var view = this; 
-    
     this.intervalID = setInterval(function() {
       var left = parseInt(view.$(".track").css("left"));
       view.$(".track").css("left", left - 2);

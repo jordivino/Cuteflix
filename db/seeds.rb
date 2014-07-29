@@ -103,6 +103,10 @@ v17 = Video.create(
   :ytid => "HHEBAIpRl4s"
 )
 
+v18 = Video.create(
+  :title => "Sleeping Dogs Compliation", 
+  :ytid => "dtoty6IC0X0"
+)
 
 
 
@@ -116,6 +120,7 @@ humansTag = Tag.create(:name => "Humans")
 v2.tags.push(dogsTag)
 v3.tags.push(dogsTag)
 v5.tags.push(dogsTag)
+v18.tags.push(dogsTag)
 v10.tags.push(dogsTag)
 v11.tags.push(dogsTag)
 v12.tags.push(dogsTag)

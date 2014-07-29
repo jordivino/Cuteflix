@@ -13,13 +13,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
       <ul class="nav navbar-nav">
-        <li><%= link_to current_user.username, "" %></li>
-        <li><%= button_to "Sign Out", session_url, :method => :delete, :class => "btn btn-primary navbar-btn" %></li>
+        <li class="nav-link"><%= link_to current_user.username, "" %></li>
+        <li class="nav-link"><%= button_to "Sign Out", session_url, :method => :delete, :class => "btn btn-primary navbar-btn" %></li>
       </ul>
       <% else %>
         <ul class="nav navbar-nav">
-          <li><%= link_to "Sign in", new_session_url %></li>
-          <li><%= link_to "Sign up", new_user_url %></li>
+          <li class="nav-link"><%= link_to "Sign in", new_session_url %></li>
+          <li class="nav-link"><%= link_to "Sign up", new_user_url %></li>
         </ul>
       <% end %>
       
@@ -33,7 +33,11 @@
       
       
 <% if flash[:errors] %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-  <%= flash[:errors].join("<br>") %>
-  </div>
+  
+  <ul class="alert alert-warning alert-dismissible" role="alert">
+    <% flash[:errors].each do |error| %>
+      <li class="error"><%= error %></li>
+    <% end %>
+  </ul>
+  
 <% end %>
