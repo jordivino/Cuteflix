@@ -31,8 +31,8 @@ class UsersController < ApplicationController
     )
     
     @guest.save
-    @guest.my_list_video_ids = [1, 2, 4, 7, 9]
-    @guest.recent_video_ids = [1, 3, 4, 7, 10, 14]
+    @guest.my_list_video_ids = [1, 2, 11, 14, 16]
+    @guest.recent_video_ids = [17, 1, 11, 13, 16]
     @guest.save
     
     log_in!(@guest)

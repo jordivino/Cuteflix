@@ -33,6 +33,14 @@ Backbone.CompositeView = Backbone.View.extend({
 		subview.delegateEvents();
   },
   
+  onRender: function() {
+    _(this.subviews()).each(function (subviews, selector) {
+      _(subviews).each(function (subview) {
+        subview.onRender && subview.onRender();
+      });
+    });
+  },
+  
   removeAllSubviews: function(selector) {
     var view = this; 
     this.subviews(selector).forEach(function(subview){
@@ -51,7 +59,6 @@ Backbone.CompositeView = Backbone.View.extend({
     //
     // All that is necessary is "attaching" the subview `$el`s to the
     // relevant points in the parent CompositeView.
-		
 		
     var view = this;
     _(this.subviews()).each(function (subviews, selector) {

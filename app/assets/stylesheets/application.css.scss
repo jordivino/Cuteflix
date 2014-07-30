@@ -228,17 +228,24 @@ $dropdown-background: rgb(248,248,248);
 }
 
 #back-button {
-  font-size: 30px;
+  font-size: 50px;
   color: $light-grey;
   position: absolute;
-  top: 100px;
-  left: 15px;
+  top: 30px;
+  left: 20px;
   text-decoration: none !important; 
+  transition: opacity 0.5s;
+  opacity: 0;
+  
   
   &:hover {
     color: white;
   };
 }
+
+#content:hover #back-button {
+  opacity: 1;
+};
 
 #content {
   position: absolute;
@@ -250,6 +257,8 @@ $dropdown-background: rgb(248,248,248);
     height: 100%;
   }
 }
+
+
 
 
 
