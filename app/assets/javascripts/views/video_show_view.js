@@ -15,6 +15,19 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
     this.addToRecent();
   }, 
   
+  events: {
+    "mouseenter #player": "showBackButton",
+    "mouseleave #player": "hideBackButton"
+  },
+  
+  showBackButton: function() {
+    this.$("#back-button").show();
+  }, 
+  
+  hideBackButton: function() {
+    this.$("#back-button").hide();
+  },
+  
   render: function() {
     var renderedContent = this.template({
       video: this.model

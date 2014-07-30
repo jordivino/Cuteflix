@@ -20,7 +20,7 @@
 //= require jquery-ui
 //= require jquery.kinetic
 //= require jquery.mousewheel
-//= require jquery.smoothDivScroll
+//= require jquery.smooth_div_scroll
 
 
 //= require underscore
