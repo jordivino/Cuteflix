@@ -30,7 +30,8 @@ class Api::VideosController < ApplicationController
 
   def add_recent
     video_id = params[:id]
-    current_user.recent_video_ids += [video_id]
+    # current_user.recent_video_ids += [video_id]
+    current_user.video_plays.create(:video_id => video_id)
     render :json => current_user.recent_videos.includes(:tags)
   end 
 

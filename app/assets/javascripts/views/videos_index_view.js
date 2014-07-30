@@ -37,6 +37,7 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
     });
 
   }, 
+
   
   render: function() {
     var renderedContent = this.template(); 

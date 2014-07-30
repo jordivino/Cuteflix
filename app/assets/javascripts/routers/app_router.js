@@ -43,7 +43,6 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
-    view.onRender && view.onRender();
   }
   
 });

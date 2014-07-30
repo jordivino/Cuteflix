@@ -19,4 +19,6 @@ class Video < ActiveRecord::Base
     :source => :tag
   )
   
+  has_many :video_plays
+  
 end 

@@ -26,18 +26,16 @@ body {
   background-color: $light-blue;
 }
 
-.auth-container {
+.background {
   background-image: url('splash_cat.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 100px;
-  margin: 0;
-  height: 100vh;
 }
 
 .auth {
   padding-left: 50%;
+  padding-top: 10%;
   position: relative;
 }
 

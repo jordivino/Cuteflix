@@ -93,17 +93,17 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     return this;  
   }, 
   
-  scrolling: function() {
-    var view = this; 
-    setTimeout(function () {
-    	view.$("#makeMeScrollable").smoothDivScroll({
-    		manualContinuousScrolling: true, 
-        hotSpotScrolling: true, 
-        visibleHotSpotBackgrounds: "onStart", 
-        
-    	});
-    })
-  },
+  // scrolling: function() {
+  //   var view = this;
+  //   setTimeout(function () {
+  //     view.$("#makeMeScrollable").smoothDivScroll({
+  //       manualContinuousScrolling: true,
+  //       hotSpotScrolling: true,
+  //       visibleHotSpotBackgrounds: "onStart",
+  //
+  //     });
+  //   })
+  // },
   
   
   events: {

@@ -6,17 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-guest_user = User.create(
-  :email => "guest@cuteflix.com", 
-  :username => "Guest",
-  :password => "password"
-)
-
-test_user = User.create(
-  :email => "philpee2@gmail.com", 
-  :username => "Phil", 
-  :password => "password"
-)
 
 v1 = Video.create(
   :title => "Cat In A Shark Costume Rides A Roomba",
@@ -108,13 +97,23 @@ v18 = Video.create(
   :ytid => "dtoty6IC0X0"
 )
 
+v19 = Video.create(
+  :title => "The Most Intense Taekwondo Fight Ever",
+  :ytid => "CAP-Xj4Fz18"
+)
+
+
+
+
+
+
 
 
 catsTag = Tag.create(:name => "Cats")
 dogsTag = Tag.create(:name => "Dogs")
 bunniesTag = Tag.create(:name => "Bunnies")
 wildlifeTag = Tag.create(:name => "Wildlife")
-humansTag = Tag.create(:name => "Humans")
+humansTag = Tag.create(:name => "Hoomanz")
 
 
 v2.tags.push(dogsTag)
@@ -125,14 +124,19 @@ v10.tags.push(dogsTag)
 v11.tags.push(dogsTag)
 v12.tags.push(dogsTag)
 v13.tags.push(dogsTag)
+
 v4.tags.push(catsTag)
 v1.tags.push(catsTag)
 v9.tags.push(catsTag)
 v17.tags.push(catsTag)
+
 v6.tags.push(bunniesTag)
 v7.tags.push(bunniesTag)
 v8.tags.push(bunniesTag)
+
 v14.tags.push(wildlifeTag)
 v15.tags.push(wildlifeTag)
 v16.tags.push(wildlifeTag)
+
+v19.tags.push(humansTag)
 

@@ -20,22 +20,28 @@ class UsersController < ApplicationController
   
   def demo
     t = Time.new
-    code = t.year.to_s + t.mon.to_s + t.day.to_s + t.hour.to_s + t.min.to_s
+    code = t.year.to_s + t.mon.to_s + t.day.to_s + t.hour.to_s + t.min.to_s + t.sec.to_s
     username = "Guest"
     email = "demo" + code + "@cuteflix.com"
     password = "password"
-    @guest = User.new(
+    @demo = User.new(
       :username => username, 
       :email => email,
       :password => password
     )
     
-    @guest.save
-    @guest.my_list_video_ids = [1, 2, 11, 14, 16]
-    @guest.recent_video_ids = [17, 1, 11, 13, 16]
-    @guest.save
+    @demo.save
+    @demo.my_list_video_ids = [1, 2, 11, 14, 16]
     
-    log_in!(@guest)
+    id = @demo.id
+    VideoPlay.create({:user_id => id, :video_id => 17})
+    VideoPlay.create({:user_id => id, :video_id => 1})
+    VideoPlay.create({:user_id => id, :video_id => 11})
+    VideoPlay.create({:user_id => id, :video_id => 13})
+    VideoPlay.create({:user_id => id, :video_id => 16})
+    @demo.save
+    
+    log_in!(@demo)
   end 
 
   

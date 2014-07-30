@@ -27,13 +27,18 @@ class User < ActiveRecord::Base
     :source => :video
   ) 
   
-  has_many :video_plays, -> { order('created_at DESC').limit('10') }
+  has_many :video_plays, -> { order('video_plays.id DESC') }
   
-  has_many(
-    :recent_videos, 
-    :through => :video_plays, 
-    :source => :video
-  )
+  
+  def recent_videos
+    Video.joins(:video_plays)
+      .select("videos.*, max(video_plays.id)")
+      .where("video_plays.user_id = ?", self.id)
+      .order("max(video_plays.id) DESC")
+      .group("videos.id")
+      .limit(7)
+      .distinct
+  end
 
   attr_reader :password
   

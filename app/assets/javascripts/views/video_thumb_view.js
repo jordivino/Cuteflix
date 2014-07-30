@@ -17,13 +17,6 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     );
   }, 
   
-  onRender: function() {
-    debugger
-    this.$(".toggle-list").tooltip({
-      delay: { show: 500 },
-      placement: "left auto"
-    });
-  },
   
   render: function() { 
     var renderedContent = this.template({
@@ -32,8 +25,13 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
   
     this.$el.html(renderedContent); 
     
-    
-    
+    setTimeout(function() {
+      this.$(".toggle-list").tooltip({
+        delay: { show: 500 },
+        placement: "left auto"
+      });
+    });
+
     return this;
   }, 
   
