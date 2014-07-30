@@ -118,16 +118,32 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   slideLeft: function(event) {
     var view = this; 
     this.intervalID = setInterval(function() {
-      var left = parseInt(view.$(".track").css("left"));
-      view.$(".track").css("left", left + 3);
+      
+      var firstThumb = view.subviews(".track")[0];
+      var firstThumbLeft = firstThumb.el.getBoundingClientRect().left;
+      var sliderLeft = view.$(".videos-slider")[0].getBoundingClientRect().left;
+      
+      if (firstThumbLeft < sliderLeft + 5) {
+        var left = parseInt(view.$(".track").css("left"));
+        view.$(".track").css("left", left + 3);
+      }
+      
     }, 10);
   },
   
   slideRight: function(event) {
     var view = this; 
     this.intervalID = setInterval(function() {
-      var left = parseInt(view.$(".track").css("left"));
-      view.$(".track").css("left", left - 3);
+      
+      var thumbs = view.subviews(".track");
+      var lastThumb = thumbs[thumbs.length - 1];
+      var lastThumbRight = lastThumb.el.getBoundingClientRect().right;
+      var sliderRight = view.$(".videos-slider")[0].getBoundingClientRect().right;
+      
+      if (lastThumbRight > sliderRight - 5) {
+        var left = parseInt(view.$(".track").css("left"));
+        view.$(".track").css("left", left - 3);
+      }
     }, 10);
   },
   
