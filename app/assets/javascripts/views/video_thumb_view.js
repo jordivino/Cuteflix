@@ -27,7 +27,6 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     
     setTimeout(function() {
       this.$(".toggle-list").tooltip({
-        delay: { show: 500 },
         placement: "left auto"
       });
     });

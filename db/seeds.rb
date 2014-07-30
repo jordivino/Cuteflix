@@ -8,7 +8,7 @@
 
 
 v1 = Video.create(
-  :title => "Cat In A Shark Costume Rides A Roomba",
+  :title => "Cat in a Shark Costume Rides a Roomba",
   :ytid => "Of2HU3LGdbo"
 )
 
@@ -18,7 +18,7 @@ v2 = Video.create(
 )
 
 v3 = Video.create(
-  :title => "Chow Puppy Can't Get Out Of Bowl",
+  :title => "Chow Puppy Can't Get Out of Bowl",
   :ytid => "lgLGk8Ssgsg"
 )
 
@@ -33,7 +33,7 @@ v5 = Video.create(
 )
 
 v6 = Video.create(
-  :title => "cute bunny",
+  :title => "Cute Bunny",
   :ytid => "EY-uM56BSrY"
 )
 
@@ -48,7 +48,7 @@ v8 = Video.create(
 )
 
 v9 = Video.create(
-  :title => "Cute Kitten Playing And Sleeping", 
+  :title => "Cute Kitten Playing and Sleeping", 
   :ytid => "vpqA0OwtvK0"
 )
 
@@ -78,17 +78,17 @@ v14 = Video.create(
 )
 
 v15 = Video.create(
-  :title => "Red Panda Does Gymnastic Rings Pull-Ups", 
+  :title => "Red Panda Does Pull-Ups", 
   :ytid => "V4RX15cxI28"
 )
 
 v16 = Video.create(
-  :title => "Cute pandas playing on the slide", 
+  :title => "Cute Pandas Playing on the Slide", 
   :ytid => "sGF6bOi1NfA"
 )
 
 v17 = Video.create(
-  :title => "Pussies in boot", 
+  :title => "Kittens in Boot", 
   :ytid => "HHEBAIpRl4s"
 )
 
@@ -102,12 +102,60 @@ v19 = Video.create(
   :ytid => "CAP-Xj4Fz18"
 )
 
+v20 = Video.create(
+  :title => "Cute Puppies Going Down Stairs Compilation",
+  :ytid => "Xo8PwVDI1v0"
+)
 
+v21 = Video.create(
+  :title => "Push Up Puppy",
+  :ytid => "JXBZ_XhZXU4"
+)
 
+v22 = Video.create(
+  :title => "Tiny Kitten Drinks Milk",
+  :ytid => "HtWixLbDNPg"
+)
 
+v23 = Video.create(
+  :title => "Cute Kitten Chases Washing Machine",
+  :ytid => "kBEillmUckk"
+)
 
+v24 = Video.create(
+  :title => "Fluffy Kitten is Confused",
+  :ytid => "HECa3bAFAYk"
+)
 
+v25 = Video.create(
+  :title => "Kittens on a Slide",
+  :ytid => "gppbrYIcR80"
+)
 
+v26 = Video.create(
+  :title => "Cute Munchkin Baby Kitten Talks Too Much",
+  :ytid => "YZs3EADi2pQ"
+)
+
+v27 = Video.create(
+  :title => "Cute Baby Monkey Eating",
+  :ytid => "hmtx2tFQ69E"
+)
+
+v28 = Video.create(
+  :title => "Baby Twins Dancing to Daddy's Guitar",
+  :ytid => "to7uIG8KYhg"
+)
+
+v29 = Video.create(
+  :title => "5 Day Old Puppies on Tiny Couches",
+  :ytid => "vvK7D30Qiko"
+)
+
+v30 = Video.create(
+  :title => "Baby Eating a Watermelon", 
+  :ytid => "mqxzvImBqNw"
+)
 
 catsTag = Tag.create(:name => "Cats")
 dogsTag = Tag.create(:name => "Dogs")
@@ -115,28 +163,23 @@ bunniesTag = Tag.create(:name => "Bunnies")
 wildlifeTag = Tag.create(:name => "Wildlife")
 humansTag = Tag.create(:name => "Hoomanz")
 
+[v2, v3, v5, v18, v11, v12, v13, v20, v21, v29].each do |v|
+  v.tags.push(dogsTag)
+end 
 
-v2.tags.push(dogsTag)
-v3.tags.push(dogsTag)
-v5.tags.push(dogsTag)
-v18.tags.push(dogsTag)
-v10.tags.push(dogsTag)
-v11.tags.push(dogsTag)
-v12.tags.push(dogsTag)
-v13.tags.push(dogsTag)
+[v4, v1, v9, v17, v22, v23, v24, v25, v26].each do |v|
+  v.tags.push(catsTag)
+end
 
-v4.tags.push(catsTag)
-v1.tags.push(catsTag)
-v9.tags.push(catsTag)
-v17.tags.push(catsTag)
+[v6, v7, v8].each do |v| 
+  v.tags.push(bunniesTag)
+end 
 
-v6.tags.push(bunniesTag)
-v7.tags.push(bunniesTag)
-v8.tags.push(bunniesTag)
+[v14, v15, v16, v27].each do |v|
+  v.tags.push(wildlifeTag)
+end
 
-v14.tags.push(wildlifeTag)
-v15.tags.push(wildlifeTag)
-v16.tags.push(wildlifeTag)
-
-v19.tags.push(humansTag)
+[v19, v28, v30].each do |v|
+  v.tags.push(humansTag)
+end 
 

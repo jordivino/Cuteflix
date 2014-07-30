@@ -22,8 +22,30 @@ $dark-blue: #096EB2;
 $light-grey: #D8D8D8;
 
 body {
-//  padding-top: 50px;
   background-color: $light-blue;
+}
+
+#content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  > div {
+    height: 100%;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+  color: white;
+  &:hover {
+    color: $light-grey;
+  };
+}
+
+.btn-primary {
+  background-color: $light-blue;
+  border: none
 }
 
 .background {
@@ -31,6 +53,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  z-index: -1;
 }
 
 .auth {
@@ -39,65 +62,41 @@ body {
   position: relative;
 }
 
-
-#demo-button {
-  margin-top: 10px;
+.error {
+  margin-left: 20px;
 }
+
+.alert {
+  margin-top: 60px;
+}
+
 
 form  {
   * {
     font-size: 16px;
-  }
-  
+  }  
   .email, .password, .username {
     padding: 10px 10px;
     width: 370px;
-    border-radius: 2px;
     margin-bottom: 15px; 
-  
-  	-moz-border-radius: 3px;
-  	-webkit-border-radius: 3px;
-  	border-radius: 3px; /* future proofing */
-  	-khtml-border-radius: 3px; /* for old Konqueror browsers */
   }
-  
 }
 
-#content {
-  position: absolute;
+#demo-button {
+  margin-top: 10px;
+  background-color: $dark-blue;
 }
 
-.btn-primary  { 
-  color: white;
+#submit, #demo-button {
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
 }
 
 .slider-name {
   margin-left: 20px;
   color: white;
 }
-
-.btn-primary {
-  background-color: $light-blue;
-  border: none
-}
-
-
-.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
-  color: white;
-  &:hover {
-    color: $light-grey;
-    
-  };
-}
-
-.error {
-  margin-left: 20px;
-}
-
-.alert {
-  margin-bottom: 0px;
-}
-
 
 $slider-height: 260px;
 .videos-slider {
@@ -110,16 +109,15 @@ $slider-height: 260px;
   overflow: hidden;
 }
 
-
 .arrow {
   position: absolute;
   height: $slider-height;
   background-color: black;
   width: 50px;
   z-index: 1;
-  opacity: 0.3;
+  opacity: 0.4;
   &:hover {
-    opacity: 0.5;
+    opacity: 0.6;
   };
 }
 
@@ -138,8 +136,6 @@ $slider-height: 260px;
   color: $dark-blue;
 }
 
-
-
 .track {
   height: $slider-height;
   position: absolute;
@@ -151,7 +147,6 @@ $slider-height: 260px;
 }
 
 .thumbs {
-  
   display: inline-block;
   vertical-align: top;
   
@@ -192,6 +187,7 @@ $slider-height: 260px;
   cursor: pointer;
   position: absolute;
   top: 10px;
+  right: 7px;
   &:hover {
     color: $light-grey;
   };
@@ -216,7 +212,7 @@ $dropdown-background: rgb(248,248,248);
 
 .video-title {
   float: left;
-  width: 80%;
+  width: 75%;
   font-size: 15px;
   margin-left: 3px;
 }
@@ -245,16 +241,7 @@ $dropdown-background: rgb(248,248,248);
   opacity: 1;
 };
 
-#content {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  > div {
-    height: 100%;
-  }
-}
+
 
 
 

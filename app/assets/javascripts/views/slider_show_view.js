@@ -110,7 +110,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseenter .left-arrow": "slideLeft",
     "mouseenter .right-arrow": "slideRight",
     "mouseleave .left-arrow": "stopLeft",
-    "mouseleave .right-arrow": "stopRight", 
+    "mouseleave .right-arrow": "stopRight",
     "mouseenter .videos-slider": "showArrows",
     "mouseleave .videos-slider": "hideArrows"
   }, 
@@ -119,7 +119,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     var view = this; 
     this.intervalID = setInterval(function() {
       var left = parseInt(view.$(".track").css("left"));
-      view.$(".track").css("left", left + 2);
+      view.$(".track").css("left", left + 3);
     }, 10);
   },
   
@@ -127,7 +127,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     var view = this; 
     this.intervalID = setInterval(function() {
       var left = parseInt(view.$(".track").css("left"));
-      view.$(".track").css("left", left - 2);
+      view.$(".track").css("left", left - 3);
     }, 10);
   },
   
