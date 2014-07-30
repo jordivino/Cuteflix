@@ -3,7 +3,7 @@ Cuteflix::Application.routes.draw do
 
   resources :users, :only => [:new, :create] do
     collection do 
-      post :guest
+      post :demo
     end 
   end 
   resource :session, :only => [:new, :create, :destroy] do 

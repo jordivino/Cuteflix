@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     @user = User.new
   end 
   
-  def guest
+  def demo
     t = Time.new
     code = t.year.to_s + t.mon.to_s + t.day.to_s + t.hour.to_s + t.min.to_s
     username = "Guest"
-    email = "guest" + code + "@cuteflix.com"
+    email = "demo" + code + "@cuteflix.com"
     password = "password"
     @guest = User.new(
       :username => username, 
