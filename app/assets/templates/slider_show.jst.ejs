@@ -1,20 +1,30 @@
-<h3 class="slider-name"><%= name %></h3>
-<div class="videos-slider">
-    <div
-      class="left-arrow arrow">
-      <div class="glyphicon glyphicon-chevron-left"></div>
+
+<div class='slider-header'>
+  <h3 class="slider-name"><%= name %></h3>
+  
+  <% if (name !== "My List" && name !== "Recently Watched") { %>
+    <div class="fa fa-plus-circle add-video"></div>
+  
+    <div class='video-container'>
+      <form class="video-form">
+        <input type="text" placeholder="YouTube URL" class="video-input" name="url">
+
+        <input type="submit" value="Add Video" class="submit-video btn btn-primary btn-xs">
+      </form>
     </div>
-    <div
-      class="right-arrow arrow">
-      <div class="glyphicon glyphicon-chevron-right"></div>
-    </div>
-    <div class="track" id="makeMeScrollable"></div>
+  <% } %>
+  
 </div>
 
-
-<!-- <div class="videos-slider" >
-    <ul class="track" id="makeMeScrollable"></ul>
-</div> -->
-
-
-
+<div class="videos-slider">
+  
+    <div class="left-arrow arrow">
+      <div class="glyphicon glyphicon-chevron-left"></div>
+    </div>
+    
+    <div class="right-arrow arrow">
+      <div class="glyphicon glyphicon-chevron-right"></div>
+    </div>
+    
+    <div class="track"></div>
+</div>

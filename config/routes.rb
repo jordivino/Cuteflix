@@ -10,7 +10,7 @@ Cuteflix::Application.routes.draw do
   end 
   
   namespace :api, :defaults => {:format => :json} do 
-    resources :videos, :only  => [:show, :index] do 
+    resources :videos, :only  => [:show, :index, :create] do 
       member do 
         post :add_my_list
         delete :remove_my_list

@@ -157,13 +157,30 @@ v30 = Video.create(
   :ytid => "mqxzvImBqNw"
 )
 
+v31 = Video.create(
+  :title => "Corgi Pup Struggles to Exit Tent", 
+  :ytid => "DFVAylcYrQY"
+)
+
+v32 = Video.create(
+  :title => "Dancing Otter", 
+  :ytid => "LClXK59VP0Q"
+)
+
+v33 = Video.create(
+  :title => "Sadie doesn't want her brother to grow up",
+  :ytid => "84DLT4yRcy4"
+)
+
+
+
 catsTag = Tag.create(:name => "Cats")
 dogsTag = Tag.create(:name => "Dogs")
 bunniesTag = Tag.create(:name => "Bunnies")
 wildlifeTag = Tag.create(:name => "Wildlife")
 humansTag = Tag.create(:name => "Hoomanz")
 
-[v2, v3, v5, v18, v11, v12, v13, v20, v21, v29].each do |v|
+[v2, v3, v5, v18, v11, v12, v13, v20, v21, v29, v31].each do |v|
   v.tags.push(dogsTag)
 end 
 
@@ -175,11 +192,11 @@ end
   v.tags.push(bunniesTag)
 end 
 
-[v14, v15, v16, v27].each do |v|
+[v14, v15, v16, v27, v32].each do |v|
   v.tags.push(wildlifeTag)
 end
 
-[v19, v28, v30].each do |v|
+[v19, v28, v30, v33].each do |v|
   v.tags.push(humansTag)
 end 
 

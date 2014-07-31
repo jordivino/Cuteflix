@@ -23,6 +23,15 @@ $light-grey: #D8D8D8;
 
 body {
   background-color: $light-blue;
+  
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 #content {
@@ -98,9 +107,59 @@ form  {
   font-size: 16px;
 }
 
+.slider {
+  margin: 20px 20px 10px 20px
+}
+
 .slider-name {
-  margin-left: 20px;
   color: white;
+
+  margin: 0;
+}
+
+.slider-header {
+  height: 40px;
+  white-space: nowrap;
+}
+
+.slider-header > * {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.add-video {
+  font-size: 22px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  &:hover{
+    color: $light-grey;
+  };
+}
+
+.video-container {
+  width: 400px;
+  height: 35px;
+}
+
+.video-form {
+  display: none;
+  padding-top: 10px;
+  * {
+    font-size: 14px;
+  }
+  width: 100%;
+}
+
+.video-input {
+  width: 280px;
+}
+
+.submit-video {
+  background-color: $dark-blue;
+  border: none;
+  color: white;
+  margin-left: 5px;
 }
 
 $slider-height: 260px;
@@ -108,8 +167,7 @@ $slider-height: 260px;
   position: relative;
   height: $slider-height;
   background-color: $dark-blue; 
-  margin-right: 20px; 
-  margin-left: 20px;
+  margin-top: 10px;
   
   overflow: hidden;
 }
@@ -124,6 +182,13 @@ $slider-height: 260px;
   &:hover {
     opacity: 0.6;
   };
+}
+
+.arrow, .videos-slider {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; /* future proofing */
+	-khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
 
 .left-arrow {
@@ -161,6 +226,10 @@ $slider-height: 260px;
   margin: 5px;
   margin-top: 6px;
   background-color: $light-grey;
+  
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
 
 
 }
@@ -197,23 +266,6 @@ $slider-height: 260px;
     color: $light-grey;
   };
 }
-
-/*
-.dropdown {
-  cursor: pointer;
-  float: right;
-}
-
-
-$dropdown-background: rgb(248,248,248);
-.dropdown-menu-item {
-  padding: 3px 20px;
-  white-space: nowrap;
-  &:hover {
-    background-color: $dropdown-background;
-  };
-}
-*/
 
 .video-title {
   float: left;

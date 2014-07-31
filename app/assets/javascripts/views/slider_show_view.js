@@ -2,6 +2,8 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   
   template: JST["slider_show"],
   
+  className: "slider",
+  
   initialize: function(options) {
     var view = this; 
     this.collection = options.collection; 
@@ -10,7 +12,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.listenTo(
       this.collection, 
       "add", 
-      this.addVideo
+      this.addVideoView
     );
     
     this.listenTo(
@@ -32,7 +34,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     );
     
     this.collection.each(function(video) {
-      view.addVideo(video)
+      view.addVideoView(video);
     });
   }, 
   
@@ -54,7 +56,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   },
 
   
-  addVideo: function(videoModel) { 
+  addVideoView: function(videoModel) { 
     var videoThumbView = new Cuteflix.Views.VideoThumbView({
       model: videoModel
     });
@@ -85,26 +87,9 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.$(".arrow").hide();
 
     this.attachSubviews();
-    
-    // $(document).ready(function() {
-    //   view.scrolling();
-    // });
 
     return this;  
   }, 
-  
-  // scrolling: function() {
-  //   var view = this;
-  //   setTimeout(function () {
-  //     view.$("#makeMeScrollable").smoothDivScroll({
-  //       manualContinuousScrolling: true,
-  //       hotSpotScrolling: true,
-  //       visibleHotSpotBackgrounds: "onStart",
-  //
-  //     });
-  //   })
-  // },
-  
   
   events: {
     "mouseenter .left-arrow": "slideLeft",
@@ -112,10 +97,12 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseleave .left-arrow": "stopLeft",
     "mouseleave .right-arrow": "stopRight",
     "mouseenter .videos-slider": "showArrows",
-    "mouseleave .videos-slider": "hideArrows"
+    "mouseleave .videos-slider": "hideArrows",
+    "click .add-video": "showForm",
+    "submit .video-form": "addNewVideo"
   }, 
   
-  slideLeft: function(event) {
+  slideLeft: function() {
     var view = this; 
     this.intervalID = setInterval(function() {
       
@@ -131,7 +118,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     }, 10);
   },
   
-  slideRight: function(event) {
+  slideRight: function() {
     var view = this; 
     this.intervalID = setInterval(function() {
       
@@ -140,27 +127,57 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
       var lastThumbRight = lastThumb.el.getBoundingClientRect().right;
       var sliderRight = view.$(".videos-slider")[0].getBoundingClientRect().right;
       
-      if (lastThumbRight > sliderRight - 5) {
+      if (lastThumbRight > sliderRight - 50) {
         var left = parseInt(view.$(".track").css("left"));
         view.$(".track").css("left", left - 3);
       }
     }, 10);
   },
   
-  stopLeft: function(event) {
+  stopLeft: function() {
     clearInterval(this.intervalID)
   }, 
   
-  stopRight: function(event) {
+  stopRight: function() {
     clearInterval(this.intervalID)
   },
   
-  showArrows: function(event) {
+  showArrows: function() {
     this.$(".arrow").show();
   },
   
-  hideArrows: function(event) {
+  hideArrows: function() {
     this.$(".arrow").hide();
+  }, 
+  
+  showForm: function() {
+    this.$(".video-form").animate({width: "toggle"});
+    // this.$('.video-form').toggle();
+  }, 
+  
+  addNewVideo: function(event) {
+    event.preventDefault();
+    
+    var tagName = this.name;
+    $form = $(event.currentTarget);
+    var url = $form.serializeJSON().url;
+    var domain = parseDomain(url); // write method
+    var ytid = parseYTID(url); // write method
+    if (domain === "youtube" && ytid) {
+      var title = getVideoTitle(ytid); // write method
+      var newVideo = new Cuteflix.Models.Video({ 
+        ytid: ytid,
+        title: title,
+        tag: tagName
+      });
+      Cuteflix.tags.add(newVideo);
+      
+      
+    } else {
+      // form error Bootstrap
+    }
+
+    
   }
   
 });
