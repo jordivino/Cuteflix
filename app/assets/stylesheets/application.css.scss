@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.all
+ *= require jquery-ui
  *= require_tree .
  */
 
@@ -45,6 +45,14 @@ body {
   }
 }
 
+.background {
+  background-image: url('splash_cat.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
 .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
   color: white;
   &:hover {
@@ -55,20 +63,6 @@ body {
 .btn-primary {
   background-color: $light-blue;
   border: none
-}
-
-//#logo {
-//  position: relative;
-//  margin-left: 50%;
-//  margin-top: 5%
-//}
-
-.background {
-  background-image: url('splash_cat.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
 }
 
 .auth {
@@ -128,12 +122,12 @@ form  {
 }
 
 .add-video {
-  font-size: 22px;
+  font-size: 24px;
   margin-left: 10px;
   margin-right: 10px;
-  color: white;
+  color: $light-grey;
   &:hover{
-    color: $light-grey;
+    color: white;
   };
 }
 

@@ -65,14 +65,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   
   removeThumbView: function(videoModel) {
     var subviews = this.subviews(".track");
-    var deletingSubview; 
-    for (var i = 0; i < subviews.length; i++) {
-      var subview = subviews[i];
-      if (subview.model.id === videoModel.id) {
-        var deletingSubview = subview; 
-        break; 
-      } 
-    }
+    var deletingSubview = _.findWhere(subviews, {model: videoModel})
     this.removeSubview(".track", deletingSubview)
     this.render();
   },
@@ -151,7 +144,9 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
   }, 
   
   toggleForm: function() {
-    this.$(".video-form").animate({width: "toggle"});
+    var input = this.$(".video-form")
+    input.animate({width: "toggle"}, 100);
+    input.find(".video-input").focus();
   }, 
   
   parseDomain: function(string) {
@@ -217,11 +212,15 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
           
         }); 
       } else {
-        $form.find(".video-input").effect("shake");
+        var input = $form.find(".video-input");
+        input.val("");
+        $form.effect("bounce");
+        
       }
     } else {
       var input = $form.find(".video-input");
-      input.effect("shake");
+      input.val("");
+      $form.effect("bounce");
     }
   }
 });
