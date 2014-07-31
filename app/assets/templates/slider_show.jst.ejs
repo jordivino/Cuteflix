@@ -4,12 +4,15 @@
   
   <% if (name !== "My List" && name !== "Recently Watched") { %>
     <div class="fa fa-plus-circle add-video"></div>
-  
+    
     <div class='video-container'>
       <form class="video-form">
         <input type="text" placeholder="YouTube URL" class="video-input" name="url">
 
-        <input type="submit" value="Add Video" class="submit-video btn btn-primary btn-xs">
+        <input type="submit" value="Upload Video" class="submit-video btn btn-primary btn-xs">
+      
+        <span class="video-warning">Please keep videos relevant!</span>
+        
       </form>
     </div>
   <% } %>

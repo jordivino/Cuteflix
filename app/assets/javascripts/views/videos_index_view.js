@@ -21,11 +21,12 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
       this.addTagSlider
     );
     
-    
     this.addPersonalSlider({
       name: "My List",
       collection: this.myListVideos
     });
+    
+
     
     this.addPersonalSlider({
       name: "Recently Watched",

@@ -1,7 +1,7 @@
 class Api::TagsController < ApplicationController
 
   def index
-    @tags = Tag.includes(:videos)
+    @tags = Tag.includes(:videos).order("tags.id ASC, video_taggings.id DESC")
     render :index
   end 
   

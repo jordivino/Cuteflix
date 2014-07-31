@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   
   before_validation :ensure_session_token
   
-  has_many :my_listings, -> { order('created_at DESC') }
+  has_many :my_listings
     
   has_many(
     :my_list_videos, 

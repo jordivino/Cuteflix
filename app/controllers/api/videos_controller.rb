@@ -2,7 +2,7 @@ class Api::VideosController < ApplicationController
 
   def index
     if params[:my_list]
-      @videos = current_user.my_list_videos.includes(:tags)
+      @videos = current_user.my_list_videos.includes(:tags).order("my_listings.id DESC")
     elsif params[:recent]
       @videos = current_user.recent_videos.includes(:tags)
     else 
@@ -17,8 +17,9 @@ class Api::VideosController < ApplicationController
   end 
   
   def create 
-    @video = Video.new(video_params)
-    @video.save
+    @tag = Tag.find(params[:tag_id])
+    @video = @tag.videos.new(video_params)
+    @tag.save
     render :json => @video
   end 
   
@@ -36,7 +37,6 @@ class Api::VideosController < ApplicationController
 
   def add_recent
     video_id = params[:id]
-    # current_user.recent_video_ids += [video_id]
     current_user.video_plays.create(:video_id => video_id)
     render :json => current_user.recent_videos.includes(:tags)
   end 
@@ -44,7 +44,7 @@ class Api::VideosController < ApplicationController
   private
   
   def video_params
-    params.require(:video).permit(:title, :ytid, :tag)
+    params.require(:video).permit(:title, :ytid)
   end 
 
 end 

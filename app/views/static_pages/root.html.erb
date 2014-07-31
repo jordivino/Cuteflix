@@ -1,8 +1,10 @@
 <div id="content"></div>
 
 
+<% content_for(:scripts) do %>
 
-<script>
-  $(Cuteflix.initialize);
-  
-</script>
+  <script>
+    $(Cuteflix.initialize);
+  </script>
+
+<% end %>

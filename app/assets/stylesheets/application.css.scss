@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require smoothDivScroll
+ *= require jquery.ui.all
  *= require_tree .
  */
 
@@ -153,6 +153,7 @@ form  {
 
 .video-input {
   width: 280px;
+  display: inline-block;
 }
 
 .submit-video {
@@ -160,6 +161,12 @@ form  {
   border: none;
   color: white;
   margin-left: 5px;
+}
+
+.video-warning {
+  margin-left: 5px;
+  color: white;
+  font-weight: bold;
 }
 
 $slider-height: 260px;

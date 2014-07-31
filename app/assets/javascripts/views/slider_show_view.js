@@ -98,7 +98,7 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     "mouseleave .right-arrow": "stopRight",
     "mouseenter .videos-slider": "showArrows",
     "mouseleave .videos-slider": "hideArrows",
-    "click .add-video": "showForm",
+    "click .add-video": "toggleForm",
     "submit .video-form": "addNewVideo"
   }, 
   
@@ -150,34 +150,78 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     this.$(".arrow").hide();
   }, 
   
-  showForm: function() {
+  toggleForm: function() {
     this.$(".video-form").animate({width: "toggle"});
-    // this.$('.video-form').toggle();
   }, 
   
+  parseDomain: function(string) {
+    var r = /:\/\/(.[^/]+)/;
+
+    var domain = string.match(r);
+    if (domain) {
+      return domain[1].substring(4, domain[1].length - 4);
+    }
+  },
+  
+  parseYTID: function(string) {
+    var query = string.split("?")[1];
+    if (query) {
+      var data = query.split("&");
+      var result = {};
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i].split("=");
+        result[item[0]] = item[1];
+      }
+      return result.v;
+    }
+  },
+  
+
+  getVideoTitle: function(youTubeID, callback) {
+    var url = "http://gdata.youtube.com/feeds/api/videos/" + youTubeID + "?v=2&alt=jsonc";
+    $.getJSON(url, function(data) {
+      var title = data.data.title;
+      if (title.length > 40) {
+        title = title.substring(0, 37) + "..."
+      }
+      callback(title);
+    });
+  },
+  
   addNewVideo: function(event) {
+    var view = this; 
     event.preventDefault();
-    
-    var tagName = this.name;
     $form = $(event.currentTarget);
     var url = $form.serializeJSON().url;
-    var domain = parseDomain(url); // write method
-    var ytid = parseYTID(url); // write method
-    if (domain === "youtube" && ytid) {
-      var title = getVideoTitle(ytid); // write method
-      var newVideo = new Cuteflix.Models.Video({ 
-        ytid: ytid,
-        title: title,
-        tag: tagName
-      });
-      Cuteflix.tags.add(newVideo);
-      
-      
-    } else {
-      // form error Bootstrap
-    }
-
     
+    var tag = Cuteflix.tags.findWhere( {name: this.name} );
+    var domain = this.parseDomain(url);
+    if (domain === "youtube") {
+      var youTubeID = this.parseYTID(url);
+      if (youTubeID) {
+        this.getVideoTitle(youTubeID, function(title) {
+          var newVideo = new Cuteflix.Models.Video({
+            ytid: youTubeID, 
+            title: title, 
+            tag_id: tag.id
+          });
+         
+          newVideo.save({}, {
+            success: function() {
+              tag.videos().unshift(newVideo, { silent: true });
+              tag.videos().trigger("prepend", newVideo);
+              view.toggleForm();
+            }
+          });
+
+          
+        }); 
+      } else {
+        $form.find(".video-input").effect("shake");
+      }
+    } else {
+      var input = $form.find(".video-input");
+      input.effect("shake");
+    }
   }
-  
 });

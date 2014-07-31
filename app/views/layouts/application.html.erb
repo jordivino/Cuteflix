@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <%= favicon_link_tag  "favicon.ico"%>
-  <title>Cuteflix</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <%= favicon_link_tag  "favicon.ico"%>
+    <title>Cuteflix</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    
+    <%= csrf_meta_tags %>
+  </head>
   
-  <%= render partial: "layouts/header" %>
+  <body>
+  
+    <%= render partial: "layouts/header" %>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    
+    <%= yield(:scripts) %>
+  </body>
+  
 </html>

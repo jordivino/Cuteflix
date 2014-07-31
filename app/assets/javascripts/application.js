@@ -18,10 +18,6 @@
 //= require serializeJSON
 //= require youtube_api_iframe
 //= require jquery-ui
-//= require jquery.kinetic
-//= require jquery.mousewheel
-//= require jquery.smooth_div_scroll
-
 
 //= require underscore
 //= require backbone
