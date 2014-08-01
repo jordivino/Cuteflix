@@ -41,6 +41,7 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
     var timeout = (width === "350px") ? 0 : 100 
     setTimeout(function() {
       view.$(".add-new-video, .add-new-video-text, .video-form").toggle();
+      view.$(".video-form").removeClass("has-error")
       view.$(".video-input").focus();
     }, timeout);
   },
@@ -107,20 +108,20 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
           
         }); 
       } else {
-        var input = $form.find(".video-input");
-        input.val("");
-        $form.addClass("has-error");
-        $form.effect("shake");
-        input.focus();
-        
+        this.badLink($form);
       }
     } else {
-      var input = $form.find(".video-input");
-      input.val("");
-      $form.addClass("has-error");
-      $form.effect("shake");
-      input.focus();
+      this.badLink($form)
     }
+  }, 
+  
+  badLink: function($form) {
+    var input = $form.find(".video-input");
+    input.val("");
+    $form.addClass("has-error");
+    $form.effect("shake");
+    input.focus();
+    $form.find(".video-alert").toggle();
   }
 
 }); 

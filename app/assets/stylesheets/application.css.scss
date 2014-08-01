@@ -133,6 +133,7 @@ $slider-height: 260px;
   width: 50px;
   z-index: 1;
   opacity: 0.4;
+  cursor: pointer;
   &:hover {
     opacity: 0.6;
   };
@@ -144,6 +145,7 @@ $slider-height: 260px;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
+
 
 .left-arrow {
   left: 0;
@@ -181,10 +183,10 @@ $slider-height: 260px;
   margin-top: 6px;
   background-color: $light-grey;
   
-  -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.75);
-  box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.75);
-  transition: width 0.1s linear;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; /* future proofing */
+	-khtml-border-radius: 2px; /* for old Konqueror browsers */
 }
 
 .image {
@@ -228,6 +230,7 @@ $slider-height: 260px;
 }
 
 .blank-thumb {
+  width: 150px;
   position: relative;
   padding: 30px;
   text-align: center;
@@ -246,7 +249,7 @@ $slider-height: 260px;
 }
 
 .add-new-video {
-  font-size: 120px;
+  font-size: 57px;
   color: $light-blue;
   margin-top: 10px;
 }
@@ -280,6 +283,10 @@ $slider-height: 260px;
 .video-warning {
   color: $light-blue;
   font-weight: bold;
+}
+
+.video-alert {
+  display: none;
 }
 
 
