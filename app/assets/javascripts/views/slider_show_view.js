@@ -56,11 +56,18 @@ Cuteflix.Views.SliderShowView = Backbone.CompositeView.extend({
     });
     
     subview.render();
-    // this.subviews(".track").unshift(subview);
-    this.subviews(".track").splice(1, 0, subview)
+    
+    if (this.name === "My List") {
+      this.subviews(".track").unshift(subview);
+      this.$(".track").prepend(subview.$el);
+    } else { 
+      // Make new video the second subview, rather than the first, 
+      // because of the blank tile for adding new videos 
+      
+      this.subviews(".track").splice(1, 0, subview)
+      this.$(".track > div:nth-child(1)").after(subview.$el);
+    }
 
-    // this.$(".track").prepend(subview.$el);
-    this.$(".track > div:nth-child(1)").after(subview.$el);
 
     if (subview.attachSubviews) {
       subview.attachSubviews();
