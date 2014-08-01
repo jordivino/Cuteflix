@@ -4,6 +4,7 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
   
   initialize: function(options) {
     
+    
     var view = this;
     this.tags = options.tags;
     this.myListVideos = options.myListVideos;
@@ -38,6 +39,36 @@ Cuteflix.Views.VideosIndexView = Backbone.CompositeView.extend({
     });
 
   }, 
+  
+  // setUpTour: function() {
+  //
+  //   var tour;
+  //
+  //   tour = new Shepherd.Tour({
+  //     defaults: {
+  //       classes: 'shepherd-theme-arrows',
+  //       scrollTo: true
+  //     }
+  //   });
+  //
+  //   tour.addStep('example-step', {
+  //     text: 'Click here to add or remove videos from My List',
+  //     attachTo: '.toggle-list bottom',
+  //     buttons: [
+  //       {
+  //         text: 'Next',
+  //         action: tour.next
+  //       },
+  //
+  //       {
+  //         text: "Done",
+  //         action: tour.cancel
+  //       }
+  //     ]
+  //   });
+  //
+  //   tour.start();
+  // },
 
   
   render: function() {

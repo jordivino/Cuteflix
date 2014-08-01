@@ -17,7 +17,8 @@
 //= require bootstrap
 //= require serializeJSON
 //= require youtube_api_iframe
-//= require jquery-ui/effect-bounce
+//= require jquery-ui/effect-shake
+//= require shepherd
 
 //= require underscore
 //= require backbone

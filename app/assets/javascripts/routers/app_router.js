@@ -29,6 +29,7 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
       recentVideos: Cuteflix.recentVideos
     });
     this._swapView(videosIndexView);
+    // videosIndexView.setUpTour();
   }, 
   
   videoShow: function(id) {
