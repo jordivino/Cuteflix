@@ -10,7 +10,7 @@ Pretty standard stuff. There's also a demo sign in, which creates and signs in t
 
 ###My List
 
-Like Netflix, Cuteflix allows users to store videos in a list and watch them later. Videos are added and removed from My List with the blue plus and minus buttons on each tile. Videos in My List appear in the order they were added to the list, with the most recent additions first. My List will persist between sessions for a given account, but is unique to each account.
+Like Netflix, Cuteflix allows users to store videos in a list and watch them later. Videos are added and removed from My List with the blue plus and minus buttons on each tile. Videos in My List appear in the order they were added to the list, with the most recent additions first. My List will persist between sessions for a given account, but is unique to each account. Although a video can appear in multiple places, every appearance of a given video will be consistent with regards to whether or not it is in My List. If a user adds some video in one place, every other appearance of that video will reflect this by switching its plus button to a minus button. 
 
 ###Recently Watched
 
@@ -26,7 +26,7 @@ Clicking on a video image allows users to watch a YouTube embed of the video.
 
 ###Adding new videos
 
-Clicking on the “Add a new video” tile will expand the tile into a simple form. Entering a YouTube link into this form and submitting will add the video to this slider. This video is added to the global library of videos, and will be available to all other users.
+Clicking on the “Add a new video” tile will expand the tile into a simple form. Entering a YouTube link into this form and submitting will add the video to this slider. This video is added to the global library of videos, and will be available to all other users. The form will check that the entered URL is a valid YouTube video and show an error if it isn't, but there is no error handling to check if the video is relevant. For example, a user will get an error for an invalid URL like facebook.com, but won't get an error for a YouTube link to Gangnam Style, which is not relevant to Cuteflix. 
 
 ##Technologies/Frameworks:
 
