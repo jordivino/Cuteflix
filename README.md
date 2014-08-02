@@ -1,6 +1,6 @@
 ## Overview:
 
-Cuteflix is a Netflix clone for watching cute animal videos. A deployed version can be found at www.cute-flix.com/
+Cuteflix is a Netflix clone for watching cute animal videos. A deployed version can be found [here](www.cute-flix.com)
 
 ## Features:
 
