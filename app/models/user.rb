@@ -11,8 +11,6 @@
 #  username        :string(255)
 #
 
-# require 'bcrpyt'
-
 class User < ActiveRecord::Base
   validates :email, :username, :password_digest, :session_token, :presence => true
   validates :email, :uniqueness => true

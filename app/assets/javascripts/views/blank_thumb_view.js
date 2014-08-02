@@ -39,32 +39,22 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
     var width = thumb.css("width");
   
     if (width === "350px") {
-      // shrink
-      
-      setTimeout(function() {
-        view.$(".video-form").removeClass("has-error");
-        view.$(".video-form").toggle();
-        view.$(".video-alert").hide();
-      }, 0);
-      
-      setTimeout(function() {
-        view.$(".add-new-video-text").toggle();
-      }, 100);
-      
+      var firstTimer = 0; 
+      var secondTimer = 100; 
     } else {
-      // expand
-      
-      setTimeout(function() {
-        view.$(".video-form").removeClass("has-error");
-        view.$(".video-form").toggle();
-        view.$(".video-alert").hide();
-      }, 100);
-      
-      setTimeout(function() {
-        view.$(".add-new-video-text").toggle();
-      }, 0);
+      var firstTimer = 100; 
+      var secondTimer = 0; 
     }
+      
+    setTimeout(function() {
+      view.$(".video-form").removeClass("has-error");
+      view.$(".video-form").toggle();
+      view.$(".video-alert").hide();
+    }, firstTimer);
     
+    setTimeout(function() {
+      view.$(".add-new-video-text").toggle();
+    }, secondTimer);    
 
   },
   
