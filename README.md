@@ -6,7 +6,7 @@ Cuteflix is a Netflix clone for watching cute animal videos. A deployed version 
 
 ### Sign up and Sign in
 
-Pretty standard stuff. There's also a demo sign in, which creates and signs in to a demo account, with some pre-populated account information. Note that because a new account is created, changes made to the account won't persist between sessions. if you want things to persist, just create a new account with an email address and password you can remember.
+Pretty standard stuff. There's also a demo sign in, which creates and signs in to a demo account, with some pre-populated account information. Note that because a new account is created with a random email address, changes made to the account won't persist between demo sessions. If you want things to persist, just create a new account with an email address and password you can remember, rather than using the demo sign in button. 
 
 ###My List
 
@@ -14,7 +14,7 @@ Like Netflix, Cuteflix allows users to store videos in a list and watch them lat
 
 ###Recently Watched
 
-Cuteflix stores the most 7 most recent videos a user has watched.
+Cuteflix stores the 7 videos a user has most recently watched in the Recently Watched slider. 
 
 ###Horizontal scrolling
 
@@ -38,7 +38,7 @@ There are a number of additions I'd like to make when I find the time.
 
 ###Video queues
 
-Users should be able to add videos to a queue, and this queue of videos will play automatically. When a video is over, the following video in the queue plays. When the last video in the queue is over, the user is taken back to the video browsing page. I'd also like to get pretty fancy with UI, using a drag-and-drop interface in which users can drag a video tile into a persistant bar on the bottom of the page to add to the queue, and drag videos within this bottom bar to re-order the queue.
+Users should be able to add videos to a queue. When a video is over, the following video in the queue plays automatically. When the last video in the queue is over, the user is taken back to the video browsing page. I'd also like to get pretty fancy with UI, using a drag-and-drop interface in which users can drag a video tile into a persistant bar on the bottom of the page to add to the queue, and drag videos within this bottom bar to re-order the queue.
 
 ###Cleaning up user accounts
 
@@ -46,7 +46,7 @@ Since the demo sign in button creates a new account, it's possible for the numbe
 
 ###Tourguide
 
-I'd like to add a simple tourguide that outlines Cuteflix basic features when a new user logs in
+I'd like to add a simple tourguide that outlines Cuteflix's basic features when a new user logs in. 
 
 ###Error handling for duplicate videos
 
