@@ -6,15 +6,15 @@ Cuteflix is a Netflix clone for watching cute animal videos. A deployed version 
 
 ### Sign up and Sign in
 
-Pretty standard stuff. There's also a demo sign in, which creates and signs in to a demo account, with some pre-populated account information. Note that because a new account is created with a random email address, changes made to the account won't persist between demo sessions. If you want things to persist, just create a new account with an email address and password you can remember, rather than using the demo sign in button. 
+Pretty standard stuff. There's also a demo sign in button, which creates and signs in to a demo account, with some pre-populated account information. Note that because a new account is created with a complex email address each time the button is pressed (to ensure unique addresses), changes made to the account won't persist between separate demo sessions. If you want things to persist, just create a new account with an email address and password you can remember, rather than using the demo sign in button. 
 
 ###My List
 
-Like Netflix, Cuteflix allows users to store videos in a list and watch them later. Videos are added and removed from My List with the blue plus and minus buttons on each tile. Videos in My List appear in the order they were added to the list, with the most recent additions first. My List will persist between sessions for a given account, but is unique to each account. Although a video can appear in multiple places, every appearance of a given video will be consistent with regards to whether or not it is in My List. If a user adds some video in one place, every other appearance of that video will reflect this by switching its plus button to a minus button. 
+Like Netflix, Cuteflix allows users to store videos in a list and watch them later. Videos are added and removed from My List with the blue plus and minus buttons on each tile. Videos in My List appear in the order they were added, with the most recent additions first. My List will persist between sessions for a given user, and is unique to each user. Although a video can appear in multiple places, every appearance of a given video will be consistent with regards to whether or not it is in My List. If a user adds a video in one place, every other appearance of that video will reflect this by switching its plus button to a minus button. 
 
 ###Recently Watched
 
-Cuteflix stores the 7 videos a user has most recently watched in the Recently Watched slider. 
+Cuteflix stores the 7 videos a user has most recently watched in the Recently Watched list. 
 
 ###Horizontal scrolling
 
@@ -22,15 +22,15 @@ Cuteflix uses an interface similar to Netflix for scrolling. Hovering over the l
 
 ###Watching videos
 
-Clicking on a video image allows users to watch a YouTube embed of the video.
+Clicking on a video image allows users to watch a YouTube embed of the video. The back button returns to the video browsing page. 
 
 ###Adding new videos
 
-Clicking on the “Add a new video” tile will expand the tile into a simple form. Entering a YouTube link into this form and submitting will add the video to this slider. This video is added to the global library of videos, and will be available to all other users. The form will check that the entered URL is a valid YouTube video and show an error if it isn't, but there is no error handling to check if the video is relevant. For example, a user will get an error for an invalid URL like facebook.com, but won't get an error for a YouTube link to Gangnam Style, which is not relevant to Cuteflix. 
+Clicking on the “Add a new video” tile will expand the tile into a simple form. Entering a YouTube link into this form and submitting will add the video to this slider. This video is added to the global library of videos, and will be available to all other users. More recently added videos will appear first. The form will check that the entered URL is a valid YouTube video and show an error if it isn't, but there is no error handling to check if the video is relevant. For example, a user will get an error for an invalid URL like "facebook.com", but won't get an error for a YouTube link to Gangnam Style, which is not relevant to Cuteflix. 
 
 ##Technologies/Frameworks:
 
-The backend API, as well as Sign in/Sign up, uses Ruby on Rails. The front-end uses Javascript and Backbone.js, as well as jQuery for some user interaction. Cuteflix is deployed on Heroku.
+The back-end API, as well as Sign in/Sign up, use Ruby on Rails. The front-end uses Javascript and Backbone.js, as well as jQuery for some user interaction. Cuteflix is deployed on Heroku.
 
 ##Future Todos:
 
@@ -42,7 +42,7 @@ Users should be able to add videos to a queue. When a video is over, the followi
 
 ###Cleaning up user accounts
 
-Since the demo sign in button creates a new account, it's possible for the number of accounts to grow quite quickly. I'd like to use Heroku scheduler to clean up these accounts on a regular interval (perhaps every 48 hours), to keep the size of the user accounts table reasonable.
+Since the demo sign in button creates a new account, it's possible for the number of accounts to grow quite quickly. Meanwhile, users can't log back in to a demo account, because the email address is intentionally complex. This means that there will be lots of unusable demo accounts filling up the database. I'd like to use Heroku scheduler to clean up these accounts on a regular interval (perhaps every 48 hours), to keep the size of the user accounts table reasonable.
 
 ###Tourguide
 
@@ -50,4 +50,4 @@ I'd like to add a simple tourguide that outlines Cuteflix's basic features when 
 
 ###Error handling for duplicate videos
 
-If a user tries to add a new video that's already in the database, things break pretty badly. I want to implement better error handling for this, and good feedback for the user when this happens. Ideally, this feedback should include a button that takes the user directly to the Cuteflix version of the video they are trying to add.
+Currently, if a user tries to add a new video that's already in the database, things break pretty badly. I want to implement better error handling for this, and good feedback for the user when this happens. Ideally, this feedback should include a button that takes the user directly to the Cuteflix version of the video they are trying to add.
