@@ -1,10 +1,10 @@
-##Overview: 
+## Overview: 
 
 Cuteflix is a Netflix clone for watching cute animal videos. A deployed version can be found at http://www.cute-flix.com/
 
-##Features: 
+## Features: 
 
-###Sign up and Sign in
+### Sign up and Sign in
 
 Pretty standard stuff. There's also a demo sign in, which creates and signs in to a demo account, with some pre-populated account information. Note that because a new account is created, changes made to the account won't persist between sessions. if you want things to persist, just create a new account with an email address and password you can remember. 
 
