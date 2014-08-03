@@ -24,10 +24,7 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
     } else if ($(event.target).is(".video-submit")) {
       this.addNewVideo(this.$(".video-form"));
     } else {
-      var view = this; 
-      
       this.openOrClose();
-      
     }
   },
   
@@ -113,6 +110,7 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
             success: function() {
               tag.videos().unshift(newVideo, { silent: true });
               tag.videos().trigger("prepend", newVideo);
+              view.$(".video-input").val("");
               view.openOrClose()   
             }
           });
