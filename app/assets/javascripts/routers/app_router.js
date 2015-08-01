@@ -1,14 +1,14 @@
 Cuteflix.Routers.AppRouter = Backbone.Router.extend({
-  
+
   initialize: function($rootEl){
-    this.$rootEl = $rootEl
-  }, 
-  
+    this.$rootEl = $rootEl;
+  },
+
   routes: {
-    "": "videosIndex", 
+    "": "videosIndex",
     "videos/:id": "videoShow"
-  }, 
-  
+  },
+
   videosIndex: function() {
     Cuteflix.myListVideos.fetch({
       data: {
@@ -28,22 +28,20 @@ Cuteflix.Routers.AppRouter = Backbone.Router.extend({
       recentVideos: Cuteflix.recentVideos
     });
     this._swapView(videosIndexView);
-    // videosIndexView.setUpTour();
-  }, 
-  
+  },
+
   videoShow: function(id) {
     var video = Cuteflix.videos.getOrFetch(id);
     var videoShowView = new Cuteflix.Views.VideoShowView({
       model: video
-    }); 
+    });
     this._swapView(videoShowView);
   },
-  
+
   _swapView: function(view){
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
-  
-});
 
+});

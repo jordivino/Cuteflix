@@ -1,60 +1,59 @@
 Cuteflix.Views.BlankThumbView = Backbone.View.extend({
 
-  template: JST["blank_thumb"], 
-  
+  template: JST["blank_thumb"],
+
   className: "thumbs thumbnail blank-thumb",
-  
+
   initialize: function(options) {
-    this.name = options.name
+    this.name = options.name;
   },
-  
+
   render: function() {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
     return this;
-  }, 
-  
+  },
+
   events: {
     "click": "toggleForm"
   },
-  
+
   toggleForm: function(event) {
     if ($(event.target).is(".video-input")){
-      return false
+      return false;
     } else if ($(event.target).is(".video-submit")) {
       this.addNewVideo(this.$(".video-form"));
     } else {
       this.openOrClose();
     }
   },
-  
+
   openOrClose: function() {
     var view = this;
     var thumb = this.$el;
-    
+
     thumb.toggleClass("thumb-open");
     var width = thumb.css("width");
-  
+
     if (width === "350px") {
-      var firstTimer = 0; 
-      var secondTimer = 100; 
+      var firstTimer = 0;
+      var secondTimer = 100;
     } else {
-      var firstTimer = 100; 
-      var secondTimer = 0; 
+      var firstTimer = 100;
+      var secondTimer = 0;
     }
-      
+
     setTimeout(function() {
       view.$(".video-form").removeClass("has-error");
       view.$(".video-form").toggle();
       view.$(".video-alert").hide();
     }, firstTimer);
-    
+
     setTimeout(function() {
       view.$(".add-new-video-text").toggle();
-    }, secondTimer);    
-
+    }, secondTimer);
   },
-  
+
   parseDomain: function(string) {
     var r = /:\/\/(.[^/]+)/;
 
@@ -63,7 +62,7 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
       return domain[1].substring(4, domain[1].length - 4);
     }
   },
-  
+
   parseYTID: function(string) {
     var query = string.split("?")[1];
     if (query) {
@@ -76,24 +75,23 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
       return result.v;
     }
   },
-  
 
   getVideoTitle: function(youTubeID, callback) {
     var url = "http://gdata.youtube.com/feeds/api/videos/" + youTubeID + "?v=2&alt=jsonc";
     $.getJSON(url, function(data) {
       var title = data.data.title;
       if (title.length > 40) {
-        title = title.substring(0, 38) + "..."
+        title = title.substring(0, 38) + "...";
       }
       callback(title);
     });
   },
-  
+
   addNewVideo: function($form) {
-    var view = this; 
+    var view = this;
     event.preventDefault();
     var url = $form.serializeJSON().url;
-    
+
     var tag = Cuteflix.tags.findWhere( {name: this.name} );
     var domain = this.parseDomain(url);
     if (domain === "youtube") {
@@ -101,30 +99,28 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
       if (youTubeID) {
         this.getVideoTitle(youTubeID, function(title) {
           var newVideo = new Cuteflix.Models.Video({
-            ytid: youTubeID, 
-            title: title, 
+            ytid: youTubeID,
+            title: title,
             tag_id: tag.id
           });
-         
+
           newVideo.save({}, {
             success: function() {
               tag.videos().unshift(newVideo, { silent: true });
               tag.videos().trigger("prepend", newVideo);
               view.$(".video-input").val("");
-              view.openOrClose()   
+              view.openOrClose();
             }
           });
-
-          
-        }); 
+        });
       } else {
         this.badLink($form);
       }
     } else {
-      this.badLink($form)
+      this.badLink($form);
     }
-  }, 
-  
+  },
+
   badLink: function($form) {
     var input = $form.find(".video-input");
     input.val("");
@@ -133,5 +129,4 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
     input.focus();
     $form.find(".video-alert").show();
   }
-
-}); 
+});

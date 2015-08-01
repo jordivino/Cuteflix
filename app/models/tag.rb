@@ -13,9 +13,8 @@ class Tag < ActiveRecord::Base
 
   has_many :video_taggings
   has_many(
-    :videos, 
-    :through => :video_taggings, 
+    :videos,
+    :through => :video_taggings,
     :source => :video
   )
-  
-end 
+end

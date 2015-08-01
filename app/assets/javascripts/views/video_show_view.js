@@ -1,37 +1,36 @@
 Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
-  
+
   template: JST["video_show"],
-  
+
   initialize: function(options){
-    
+
     this.model = options.model;
 
     this.listenTo(
       this.model,
       "sync",
       this.render
-    ); 
-    
+    );
+
     this.addToRecent();
-  }, 
-  
+  },
+
   events: {
     "mouseenter #player": "showBackButton",
     "mouseleave #player": "hideBackButton"
   },
-  
-  
+
   render: function() {
     var renderedContent = this.template({
       video: this.model
     });
-    this.$el.html(renderedContent); 
+    this.$el.html(renderedContent);
     if (this.model.get("ytid")) {
-      this.loadVideo();      
+      this.loadVideo();
     }
-    return this; 
-  }, 
-  
+    return this;
+  },
+
   loadVideo: function() {
     var player;
     player = new YT.Player('player', {
@@ -48,19 +47,18 @@ Cuteflix.Views.VideoShowView = Backbone.CompositeView.extend({
         showinfo: "0"
       },
     });
-  }, 
-  
+  },
+
   addToRecent: function() {
     if (Cuteflix.recentVideos.get(this.model.id)) {
       Cuteflix.recentVideos.remove(this.model);
     }
     Cuteflix.recentVideos.unshift(this.model, { silent: true});
-    
+
     var id = this.model.id;
     $.ajax ({
       url: "/api/videos/" + id + "/add_recent",
       type: "POST"
     });
   }
-  
-})
+});

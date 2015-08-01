@@ -12,8 +12,7 @@
 class MyListing < ActiveRecord::Base
   validates :video_id, :user_id, :presence => true
   validates :video_id, :uniqueness => {:scope => :user_id}
-  
-  belongs_to :video 
+
+  belongs_to :video
   belongs_to :user
-  
-end 
+end

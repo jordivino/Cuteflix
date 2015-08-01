@@ -10,17 +10,16 @@
 class Video < ActiveRecord::Base
   validates :title, :ytid, :presence => true
   validates :ytid, :uniqueness => true
-  
+
   has_many :video_taggings
-  
+
   has_many(
-    :tags, 
-    :through => :video_taggings, 
+    :tags,
+    :through => :video_taggings,
     :source => :tag
   )
-  
+
   has_many :my_listings
-  
+
   has_many :video_plays
-  
-end 
+end

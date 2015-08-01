@@ -8,14 +8,12 @@ window.Cuteflix = {
     Cuteflix.myListVideos = new Cuteflix.Collections.Videos();
     Cuteflix.recentVideos = new Cuteflix.Collections.Videos();
     Cuteflix.tags = new Cuteflix.Collections.Tags();
-    
-    
+
     var $rootEl = $("#content");
     new Cuteflix.Routers.AppRouter($rootEl);
     Backbone.history.start();
   }
 };
-
 
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
@@ -30,13 +28,13 @@ Backbone.CompositeView = Backbone.View.extend({
     if (subview.attachSubviews) {
       subview.attachSubviews();
     }
-		subview.delegateEvents();
+    subview.delegateEvents();
   },
-  
+
   removeAllSubviews: function(selector) {
-    var view = this; 
+    var view = this;
     this.subviews(selector).forEach(function(subview){
-      view.removeSubview(selector, subview)
+      view.removeSubview(selector, subview);
     });
   },
 
@@ -51,7 +49,7 @@ Backbone.CompositeView = Backbone.View.extend({
     //
     // All that is necessary is "attaching" the subview `$el`s to the
     // relevant points in the parent CompositeView.
-		
+
     var view = this;
     _(this.subviews()).each(function (subviews, selector) {
       view.$(selector).empty();
@@ -74,7 +72,6 @@ Backbone.CompositeView = Backbone.View.extend({
     var subviews = this.subviews(selector);
     subviews.splice(subviews.indexOf(subview), 1);
   },
-	
 
   subviews: function (selector) {
     // Map of selectors to subviews that live inside that selector.
@@ -90,4 +87,3 @@ Backbone.CompositeView = Backbone.View.extend({
     }
   }
 });
-

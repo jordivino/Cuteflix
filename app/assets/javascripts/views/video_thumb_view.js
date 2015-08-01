@@ -1,28 +1,27 @@
 Cuteflix.Views.VideoThumbView = Backbone.View.extend({
-  
-  template: JST["video_thumb"], 
-  
+
+  template: JST["video_thumb"],
+
   className: "thumbs thumbnail",
-  
+
   initialize: function(options) {
-    this.model = options.model; 
+    this.model = options.model;
     this.model.fetch();
-    
-    this.listenTo( 
-      this.model, 
-      "removeFromMyList addToMyList", 
+
+    this.listenTo(
+      this.model,
+      "removeFromMyList addToMyList",
       this.render
     );
-  }, 
-  
-  
-  render: function() { 
+  },
+
+  render: function() {
     var renderedContent = this.template({
       video: this.model
-    }); 
-  
-    this.$el.html(renderedContent); 
-    
+    });
+
+    this.$el.html(renderedContent);
+
     setTimeout(function() {
       this.$(".toggle-list").tooltip({
         placement: "left auto"
@@ -30,13 +29,13 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     });
 
     return this;
-  }, 
-  
+  },
+
   events: {
-    "click .remove-list": "removeFromMyList", 
-    "click .add-list": "addToMyList", 
-  }, 
-  
+    "click .remove-list": "removeFromMyList",
+    "click .add-list": "addToMyList",
+  },
+
   removeFromMyList: function(event) {
     Cuteflix.myListVideos.remove(this.model);
     var id = this.model.id;
@@ -46,8 +45,8 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     });
 
     this.updateIcon("removeFromMyList");
-  }, 
-  
+  },
+
   addToMyList: function(event) {
     Cuteflix.myListVideos.unshift(this.model, { silent: true });
     Cuteflix.myListVideos.trigger("prepend", this.model);
@@ -58,30 +57,25 @@ Cuteflix.Views.VideoThumbView = Backbone.View.extend({
     });
 
     this.updateIcon("addToMyList");
-  }, 
-  
+  },
+
   updateIcon: function(trigger) {
-    // Since Recently Watched and My List can store duplicate versions 
+    // Since Recently Watched and My List can store duplicate versions
     // of the same video, they do not reliably receive the trigger event
-    // to re-render. Therefore, it's necessary to explicitly find the 
+    // to re-render. Therefore, it's necessary to explicitly find the
     // correct model in each collection and trigger the event.
-    
+
     var video_id = this.model.id;
     var videoInRecent = Cuteflix.recentVideos.get(video_id);
     if (videoInRecent) {
       videoInRecent.trigger(trigger);
     }
     this.model.tags().each(function(tag) {
-      var tagInCollection = Cuteflix.tags.get(tag.id)
+      var tagInCollection = Cuteflix.tags.get(tag.id);
       var videoInTag = tagInCollection.videos().get(video_id);
       if (videoInTag) {
-        videoInTag.trigger(trigger)
+        videoInTag.trigger(trigger);
       }
-    }); 
+    });
   }
-
-
-  
 });
-
-
