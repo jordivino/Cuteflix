@@ -77,9 +77,15 @@ Cuteflix.Views.BlankThumbView = Backbone.View.extend({
   },
 
   getVideoTitle: function(youTubeID, callback) {
-    var url = "http://gdata.youtube.com/feeds/api/videos/" + youTubeID + "?v=2&alt=jsonc";
-    $.getJSON(url, function(data) {
-      var title = data.data.title;
+    var url = "https://www.googleapis.com/youtube/v3/videos";
+    var key = "AIzaSyAxBI-Km-Kj58CUZ-qyy1jDPG3NPFKltyQ";
+
+    $.getJSON(url, {
+      key: key,
+      part: "snippet",
+      id: youTubeID
+    }, function(data) {
+      var title = data.items[0].snippet.title;
       if (title.length > 40) {
         title = title.substring(0, 38) + "...";
       }
